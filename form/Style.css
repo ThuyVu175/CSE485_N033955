@@ -1,0 +1,35 @@
+#header, #footer{
+	height: 120px;
+	background-color: #CFFF;
+}
+/*HEADER*/
+#logo{
+	height:120px;
+	width: 200px;
+}
+#menu{
+	background-color: #3E8AC0;
+}
+ ul li a{
+	font-size: 18px;
+	display: block;
+	background-color: #3E8AC0;
+	color: yellow;
+	width: auto;
+}
+ ul li a:hover{
+	background-color: white;
+	color: black;
+}
+
+/*MENU*/
+
+.aboutUs p{
+	font-size: 20px;
+	font-weight: bold;
+}
+
+
+
+
+/*MAIN*/
