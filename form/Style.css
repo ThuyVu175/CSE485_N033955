@@ -1,40 +1,78 @@
 #header{
 	height: auto;
 	background-color: #CFFF;
+
 }
 
 #header h2{
 	text-shadow: 2px 2px 8px #FF0000;
 	font-family: WildWest;
 }
+
+#header  ul{
+	float: right;
+}
+
+#header ul li {
+	display: inline-block;
+	text-decoration: none;
+	padding-left: 10px;
+
+}
 /*HEADER*/
+
+
+
 #logo{
 	height:120px;
 	width: 200px;
 }
 #menu{
-	background-color: #3E8AC0;
+	background-color: #3E8AC0;	
+	width: 100%;
+	padding: 0px;
 }
- ul li a{
+#menu ul li>a{
 	font-size: 18px;
 	display: block;
 	background-color: #3E8AC0;
 	color: yellow;
 	width: auto;
+	border-radius: 3px; 
+
 }
- ul li a:hover{
+#menu ul li>a:hover{
 	background-color: white;
 	color: black;
 }
 
+#home{
+	color: yellow;
+}
+
+#btnMenu{
+	font-size: 16px;
+	text-align: center;
+	color: yellow;
+}
 /*MENU*/
 
+
+
+#aboutUs{
+	padding: 50px 0px;
+
+}
 .aboutUs p{
 	font-size: 20px;
 	font-weight: bold;
 }
+#aboutUs .icon{
+	color: #8700FF;
+}
+/*about us*/
 
-	/*about us*/
+
 
 .features-boxed{
 	color:#313437;
@@ -100,14 +138,16 @@
 	margin-top:15px;
 	margin-bottom:20px
 }
-
 	/*Giảng viên*/
 
+
+
 #evaluate{
-	background-color: #3E8AC0;
+	
 	padding-top: 50px;
 	padding-bottom: 50px;
 }
+
 
 
 #evaluate  .imgEvaluate{
