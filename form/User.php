@@ -19,7 +19,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3 " >
-					<img src="../img/logo.jpg" id="logo" >
+					<img src="../img/logobale.png" id="logo" >
 				</div>
 				<div class="col-md-9">
 					<div class="row mt-2">
@@ -83,79 +83,83 @@
 		</div>
 	</nav>						 
 	<!--MENU-->
-	<div id="yourClass">
-		<div class="container">
-			<div class="row">
-				<h3>KHÓA HỌC CỦA BẠN</h3>
-			</div>
-			<div class="row ">
-				<div class="col-md-3">
-					<img src="../img/logo.jpg" id="imgClass" class="img-thumbnail">
+	<div class="container-fluid" id="main">
+		<div id="yourClass" class="row">
+			<div class="container">
+				<div class="row">
+					<h3>KHÓA HỌC CỦA BẠN</h3>
 				</div>
-				<div class="col-md-4 rounded">
-					<div class="row">
-						<h4>Tên khóa học: </h4>
+				<div class="row ">
+					<div class="col-md-3">
+						<img src="../img/logo.jpg" id="imgClass" class="img-thumbnail">
 					</div>
-					<div class="row">
-						<div class="col-md-4">
-							<label>
-								Thời gian:
-							</label>
+					<div class="col-md-4 rounded">
+						<div class="row">
+							<h4>Tên khóa học: </h4>
 						</div>
-						<div class="col-md-8">
-							1/1/2018 - 2/2/2018
-						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<label>
+									Thời gian:
+								</label>
+							</div>
+							<div class="col-md-8">
+								1/1/2018 - 2/2/2018
+							</div>
 
-					</div>
-					<div class="row">
-						<div class="col-md-4">
-							<label>
-								Giáo viên:
-							</label>
 						</div>
-						<div class="col-md-8">
-							Nguyễn Thị Lan Anh
-						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<label>
+									Giáo viên:
+								</label>
+							</div>
+							<div class="col-md-8">
+								Nguyễn Thị Lan Anh
+							</div>
 
-					</div>
-					<div class="row">
-						<div class="col-md-4">
-							<label>
-								Số học viên:
-							</label>
 						</div>
-						<div class="col-md-8">
-							10
-						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<label>
+									Số học viên:
+								</label>
+							</div>
+							<div class="col-md-8">
+								10
+							</div>
 
+						</div>
 					</div>
 				</div>
+			</div> 		
+		</div>
+		<hr>
+		<div class="otherClass row">
+			<div class="container">
+				<div class="row">
+					<h3>KHÓA HỌC KHÁC</h3>
+				</div>
+				<div class="row">
+					<figure class="figure col-md-4 ">					
+						<img src="../img/logo.jpg" class="figure-img img-fluid rounded mx-auto d-block" id="otherClassImg" >				  
+					  <figcaption class="figure-caption text-center">A caption for the above image.</figcaption>
+					</figure>
+					<figure class="figure col-md-4">
+					  <img src="../img/logo.jpg" class="figure-img img-fluid rounded mx-auto d-block" id="otherClassImg" >
+					  <figcaption class="figure-caption text-center">A caption for the above image.</figcaption>
+					</figure>
+					<figure class="figure col-md-4">
+					  <img src="../img/logo.jpg" class="figure-img img-fluid rounded mx-auto d-block" id="otherClassImg" >
+					  <figcaption class="figure-caption text-center">A caption for the above image.</figcaption>
+					</figure>
+				</div>
+				
 			</div>
-		</div> 		
-	</div>
-	<hr>
-	<div class="otherClass">
-		<div class="container">
-			<div class="row">
-				<h3>KHÓA HỌC KHÁC</h3>
-			</div>
-			<div class="row">
-				<figure class="figure col-md-4 ">					
-					<img src="../img/logo.jpg" class="figure-img img-fluid rounded mx-auto d-block" id="otherClassImg" >				  
-				  <figcaption class="figure-caption text-center">A caption for the above image.</figcaption>
-				</figure>
-				<figure class="figure col-md-4">
-				  <img src="../img/logo.jpg" class="figure-img img-fluid rounded mx-auto d-block" id="otherClassImg" >
-				  <figcaption class="figure-caption text-center">A caption for the above image.</figcaption>
-				</figure>
-				<figure class="figure col-md-4">
-				  <img src="../img/logo.jpg" class="figure-img img-fluid rounded mx-auto d-block" id="otherClassImg" >
-				  <figcaption class="figure-caption text-center">A caption for the above image.</figcaption>
-				</figure>
-			</div>
-			
 		</div>
 	</div>
+	</div>
+	
 	<!--MAIN-->
 	<div id="footer">
 		<div class="container">
