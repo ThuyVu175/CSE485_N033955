@@ -40,10 +40,7 @@
 			</div>
 		</div>
 	</div>
-</div>
-
-<!--SLIDESHOW-->
-<div class="row">
+	<div class="row">
 	<div class="col-md-12">
 		<div id="aboutUs" class="bg-light row">
 			<div class="container ">
@@ -169,7 +166,7 @@
 						</div>
 						<!--GIẢNG VIÊN-->
 <div id="evaluate" class="bg-light row">
-							<div class="container">
+<div class="container">
 								<div class="row">
 									<h3 class="text-danger text-center mt-2 col-md-12">Cảm nhận của học viên</h3>
 								</div>
@@ -217,6 +214,11 @@
 										</div>
 									</div>
 								</div>
-							</div>
+</div>
+
+</div>
+
+<!--SLIDESHOW-->
+
 							<!--Cảm nhận-->
 
