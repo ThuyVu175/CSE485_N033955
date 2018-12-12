@@ -10,21 +10,28 @@
 				</ul>
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<img src="../img/slideshow1.jpg" alt="Los Angeles" width="1100" height="500">
+						<img src="../img/slideShow1.jpg" alt="Los Angeles" width="1100" height="500">
 						<div class="carousel-caption">
 							<h3>Los Angeles</h3>
 							<p>We had such a great time in LA!</p>
 						</div>   
 					</div>
 					<div class="carousel-item">
-						<img src="../img/slideshow2.jpg" alt="Chicago" width="1100" height="500">
+						<img src="../img/slideShow2.jpg" alt="Chicago" width="1100" height="500">
 						<div class="carousel-caption">
 							<h3>Chicago</h3>
 							<p>Thank you, Chicago!</p>
 						</div>   
 					</div>
 					<div class="carousel-item">
-						<img src="../img/slideshow3.jpg" alt="New York" width="1100" height="500">
+						<img src="../img/slideShow5.jpg" alt="New York" width="1100" height="500">
+						<div class="carousel-caption">
+							<h3>New York</h3>
+							<p>We love the Big Apple!</p>
+						</div>   
+					</div>
+					<div class="carousel-item">
+						<img src="../img/slideShow4.jpg" alt="New York" width="1100" height="500">
 						<div class="carousel-caption">
 							<h3>New York</h3>
 							<p>We love the Big Apple!</p>
@@ -64,7 +71,7 @@
 								<div class="col-md-4"></div>
 								<div class="text-left col-md-6">
 									<p>
-										aaaaaa aaaa aaaaaa aaaaa aaaaaa aaaaaaa aaaaaaaa aaaaa aaaaaaa aaaaaaa aaa aaaaa aaaaaaaa aaaaaaa aaaaaa aaa aaa aaaaaa aaaaaaaaa aaaaa aaaaa aaaaaaa aaaaaaa aaaa aaaaaa aaaaaaaa aaaaaa aaaa aaaaaaaa aaaa aaaaaaa aaaaaaaa 
+										Với một lộ trình khoa học, giúp đỡ học viên đi từ căn bản đến nâng cao. Giúp học viên có những ký năng chuyên môn trong các lĩnh vực năng khứu và nghệ thuật...
 									</p>
 								</div>
 							</div>
@@ -85,7 +92,7 @@
 								<div class="col-md-4"></div>
 								<div class="text-left col-md-6">
 									<p>
-										aaaaaa aaaa aaaaaa aaaaa aaaaaa aaaaaaa aaaaaaaa aaaaa aaaaaaa aaaaaaa aaa aaaaa aaaaaaaa aaaaaaa aaaaaa aaa aaa aaaaaa aaaaaaaaa aaaaa aaaaa aaaaaaa aaaaaaa aaaa aaaaaa aaaaaaaa aaaaaa aaaa aaaaaaaa aaaa aaaaaaa aaaaaaaa 
+										Đội ngũ giảng viên có nhiều năm kinh nghiệm. Đã từng đoạt các giải thưởng trong các lĩnh vực giảng dạy. Giáo viên nhiệt tình, tận tâm...
 									</p>
 								</div>
 							</div>
@@ -107,7 +114,7 @@
 								<div class="col-md-4"></div>
 								<div class="text-left col-md-6">
 									<p>
-										aaaaaa aaaa aaaaaa aaaaa aaaaaa aaaaaaa aaaaaaaa aaaaa aaaaaaa aaaaaaa aaa aaaaa aaaaaaaa aaaaaaa aaaaaa aaa aaa aaaaaa aaaaaaaaa aaaaa aaaaa aaaaaaa aaaaaaa aaaa aaaaaa aaaaaaaa aaaaaa aaaa aaaaaaaa aaaa aaaaaaa aaaaaaaa 
+										Với một lộ trình khoa học, giúp đỡ học viên đi từ căn bản đến nâng cao. Giúp học viên có những ký năng chuyên môn trong các lĩnh vực năng khứu và nghệ thuật...
 									</p>
 								</div>
 							</div>
@@ -131,98 +138,98 @@
 						<h3 class="name mt-2">Nguyễn Thị Thanh Hương</h3>
 						<p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.Praesent aliquam in tellus eu.</p><a href="#" class="learn-more">Learn more »</a></div>
 					</div>
-			<div class="col-sm-6 col-md-5 col-lg-4 item">
+					<div class="col-sm-6 col-md-5 col-lg-4 item">
 						<div class="box">
 							<img src=""class="lecturers">
 							<h3 class="name">Always available</h3>
 							<p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a href="#" class="learn-more">Learn more »</a></div>
-			</div>
-			<div class="col-sm-6 col-md-5 col-lg-4 item">
+						</div>
+						<div class="col-sm-6 col-md-5 col-lg-4 item">
 							<div class="box">
 								<img src="" class="lecturers">
 								<h3 class="name">Customizable </h3>
 								<p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a href="#" class="learn-more">Learn more »</a>
 							</div>
+						</div>
+						<div class="col-sm-6 col-md-5 col-lg-4 item">
+							<div class="box">
+								<img src="" class="lecturers">
+								<h3 class="name">Organic </h3>
+								<p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a href="#" class="learn-more">Learn more »</a>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-5 col-lg-4 item">
+							<div class="box">
+								<img src="" class="lecturers">
+								<h3 class="name">Fast </h3>
+								<p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a href="#" class="learn-more">Learn more »</a>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-5 col-lg-4 item">
+							<div class="box">
+								<img src="" class="lecturers">
+								<h3 class="name">Mobile-first</h3>
+								<p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a href="#" class="learn-more">Learn more »</a>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="col-sm-6 col-md-5 col-lg-4 item">
-								<div class="box">
-									<img src="" class="lecturers">
-									<h3 class="name">Organic </h3>
-									<p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a href="#" class="learn-more">Learn more »</a>
+			<!--GIẢNG VIÊN-->
+			<div id="evaluate" class="bg-light row">
+				<div class="container">
+					<div class="row">
+						<h3 class="text-danger text-center mt-2 col-md-12">Cảm nhận của học viên</h3>
+					</div>
+					<div class="row mt-4">
+						<div class="col-md-6">
+							<div class="row ">
+								<div class="col-md-4 ">
+									<img src="../img/hocvien1.jpg" class="imgEvaluate rounded-circle">
 								</div>
-			</div>
-			<div class="col-sm-6 col-md-5 col-lg-4 item">
-									<div class="box">
-										<img src="" class="lecturers">
-										<h3 class="name">Fast </h3>
-										<p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a href="#" class="learn-more">Learn more »</a>
-									</div>
-			</div>
-			<div class="col-sm-6 col-md-5 col-lg-4 item">
-										<div class="box">
-											<img src="" class="lecturers">
-											<h3 class="name">Mobile-first</h3>
-											<p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a href="#" class="learn-more">Learn more »</a>
-										</div>
-			</div>
-		</div>
-	</div>
-	</div>
-							<!--GIẢNG VIÊN-->
-							<div id="evaluate" class="bg-light row">
-								<div class="container">
-									<div class="row">
-										<h3 class="text-danger text-center mt-2 col-md-12">Cảm nhận của học viên</h3>
-									</div>
-									<div class="row mt-4">
-										<div class="col-md-6">
-											<div class="row ">
-												<div class="col-md-4 ">
-													<img src="../img/logo-test.jpg" class="imgEvaluate rounded-circle">
-												</div>
-												<div class="col-md-8">
-													<h5 class="p-2">aaa</h5>
-													<p class="pl-2">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.Praesent aliquam in tellus eu.</p>
-												</div>
-											</div>
-
-											<div class="row mt-2">
-												<div class="col-md-4 ">
-													<img src="../img/logo-test.jpg" class="imgEvaluate rounded-circle ">
-												</div>
-												<div class="col-md-8">
-													<h5 class="p-2">aaa</h5>
-													<p class="pl-2">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.Praesent aliquam in tellus eu.</p>
-												</div>
-											</div>						
-										</div>
-
-										<div class="col-md-6">
-											<div class="row ">
-												<div class="col-md-4 ">
-													<img src="../img/logo-test.jpg" class="imgEvaluate rounded-circle">
-												</div>
-												<div class="col-md-8">
-													<h5 class="p-2">aaa</h5>
-													<p class="pl-2">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.Praesent aliquam in tellus eu.</p>
-												</div>
-											</div>
-											<div class="row mt-2">
-												<div class="col-md-4 ">
-													<img src="../img/logo-test.jpg" class="imgEvaluate rounded-circle">
-												</div>
-												<div class="col-md-8">
-													<h5 class="p-2">aaa</h5>
-													<p class="pl-2">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.Praesent aliquam in tellus eu.</p>
-												</div>
-											</div>
-										</div>
-									</div>
+								<div class="col-md-8">
+									<h5 class="p-2">Nguyễn Trần Anh Thư</h5>
+									<p class="pl-2">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.Praesent aliquam in tellus eu.</p>
 								</div>
-
 							</div>
 
-							<!--SLIDESHOW-->
+							<div class="row mt-2">
+								<div class="col-md-4 ">
+									<img src="../img/hocvien2.jpg" class="imgEvaluate rounded-circle ">
+								</div>
+								<div class="col-md-8">
+									<h5 class="p-2">Nguyễn Anh Quân</h5>
+									<p class="pl-2">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.Praesent aliquam in tellus eu.</p>
+								</div>
+							</div>						
+						</div>
 
-							<!--Cảm nhận-->
+						<div class="col-md-6">
+							<div class="row ">
+								<div class="col-md-4 ">
+									<img src="../img/hocvien3.jpg" class="imgEvaluate rounded-circle">
+								</div>
+								<div class="col-md-8">
+									<h5 class="p-2">Trần Thị Khánh Ly</h5>
+									<p class="pl-2">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.Praesent aliquam in tellus eu.</p>
+								</div>
+							</div>
+							<div class="row mt-2">
+								<div class="col-md-4 ">
+									<img src="../img/hocvien4.jpg" class="imgEvaluate rounded-circle">
+								</div>
+								<div class="col-md-8">
+									<h5 class="p-2">Phạm Mạnh Hiếu</h5>
+									<p class="pl-2">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.Praesent aliquam in tellus eu.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<!--SLIDESHOW-->
+
+			<!--Cảm nhận-->
 
