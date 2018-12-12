@@ -66,29 +66,33 @@
       <ul class="navbar-nav ">
         <li class="nav-item">
           <a class="nav-link" href="#qlgiangvien">
-            <font face="Verdana" size="4" color="white"> QUẢN LÍ GIẢNG VIÊN </font>
+            <font face="Verdana" size="3" color="white"> QUẢN LÍ GIẢNG VIÊN </font>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#qlhocvien">
-            <font face="Verdana" size="4" color="white">QUẢN LÍ HỌC VIÊN</font>
+            <font face="Verdana" size="3" color="white">QUẢN LÍ HỌC VIÊN</font>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#qlkhoahoc">
-            <font face="Verdana" size="4" color="white">QUẢN LÍ KHÓA HỌC</font>
+            <font face="Verdana" size="3" color="white">QUẢN LÍ KHÓA HỌC</font>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#qldanhmuc">
-            <font face="Verdana" size="4" color="white">QUẢN LÍ DANH MỤC</font>
+            <font face="Verdana" size="3" color="white">QUẢN LÍ DANH MỤC</font>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#tongquan">
-            <font face="Verdana" size="4" color="white">TỔNG QUAN</font>
+            <font face="Verdana" size="3" color="white">QUẢN LÍ ĐĂNG KÍ</font>
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#tongquan">
+            <font face="Verdana" size="3" color="white">TỔNG QUAN</font>
+          </a>
         </li>
       </ul>
     </div>
@@ -138,7 +142,7 @@
                   <textarea class="form-control" id="trinhdohocvan" rows="3"></textarea>
                   <form>
                     <div class="form-group">
-                      <label for="exampleFormControlFile1">Example file input</label>
+                      <label for="exampleFormControlFile1">Chọn Ảnh</label>
                       <input type="file" class="form-control-file" id="exampleFormControlFile1">
                     </div>
                   </form>
@@ -176,10 +180,10 @@
         </p>
       </div>
       <div class="col-md-2" style="margin-top: 100px;">
-        <button type="button" title="SỬA THÔNG TIN GIẢNG VIÊN" class="buttonsmall" data-toggle="modal" data-target="#exampleModalCenter">
+        <button type="button" title="SỬA THÔNG TIN GIẢNG VIÊN" class="buttonsmall" data-toggle="modal" data-target="#exampleModalCenter1">
           <h5> SỬA</h5>
         </button>
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -237,10 +241,10 @@
         </p>
       </div>
       <div class="col-md-2" style="margin-top: 100px;">
-        <button type="button" title="SỬA THÔNG TIN GIẢNG VIÊN" class="buttonsmall" data-toggle="modal" data-target="#exampleModalCenter">
+        <button type="button" title="SỬA THÔNG TIN GIẢNG VIÊN" class="buttonsmall" data-toggle="modal" data-target="#exampleModalCenter2">
           <h5> SỬA</h5>
         </button>
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -302,10 +306,10 @@
         </p>
       </div>
       <div class="col-md-2" style="margin-top: 100px;">
-        <button type="button" title="SỬA THÔNG TIN GIẢNG VIÊN" class="buttonsmall" data-toggle="modal" data-target="#exampleModalCenter">
+        <button type="button" title="SỬA THÔNG TIN GIẢNG VIÊN" class="buttonsmall" data-toggle="modal" data-target="#exampleModalCenter3">
           <h5> SỬA</h5>
         </button>
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        <div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
           aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -370,10 +374,10 @@
         </p>
       </div>
       <div class="col-md-2" style="margin-top: 100px;">
-        <button type="button" title="SỬA THÔNG TIN GIẢNG VIÊN" class="buttonsmall" data-toggle="modal" data-target="#exampleModalCenter">
+        <button type="button" title="SỬA THÔNG TIN GIẢNG VIÊN" class="buttonsmall" data-toggle="modal" data-target="#exampleModalCenter4">
           <h5> SỬA</h5>
         </button>
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        <div class="modal fade" id="exampleModalCenter4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
           aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
