@@ -20,19 +20,17 @@
     }
   </script>
   <?php
-  $servername = "localhost";
-  $username = "user";
-  $password = "";
-  $database = "qlkhoahocttnk";
-  // Create connection
-  $conn = mysqli_connect($servername, $username, $password, $database);
-  // Check connection
-  if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-  }
-  echo "Connected successfully";
-  mysqli_close($conn);
-  ?>
+ $servername = "localhost";
+ $username = "root";
+ $password = "";
+ $dbname = "qlkhoahocttnk";
+ $con = mysqli_connect($servername,$username,$password,$dbname);
+ if(!$con){
+ die('Ket noi that bai:'.mysqli_connect_error());
+ }else{
+ echo"Ket noi thanh cong";
+ }
+ ?>
 </head>
 
 <body style="background: #E6E6FA">
