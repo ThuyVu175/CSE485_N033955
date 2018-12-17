@@ -135,7 +135,7 @@
 				<div class="row item"> 
 					<?php							
 							//connect 
-					include("cnn.php");
+					include("Xuly/cnn.php");
 							//query
 					mysqli_set_charset($cnn, "utf8");
 					$sql="SELECT image,name,description FROM lecturer WHERE isActive=1";
