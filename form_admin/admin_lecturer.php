@@ -41,13 +41,14 @@
           <img src="../img/logobale.png" style="width: 150px;height: auto;">
         </div>
         <div class="col-md-8" style="margin-top: 50px;">
+        <h1 style="text-shadow: 2px 2px 8px #FF0000;color: black;font-family: cursive;padding-left: 200px;">EAM</h1>
           <font face="family">
             <h2 class="h2"> TRUNG TÂM PHÁT TRIỂN NGHỆ THUẬT EAM</h2>
           </font>
         </div>
         <div class="col-md-2 ">
 
-          <div style="padding-top: 50px;margin-right: -130px;">
+          <div style="padding-top: 150px;margin-right: -130px;">
 
             <nav>
               <a href="#">
