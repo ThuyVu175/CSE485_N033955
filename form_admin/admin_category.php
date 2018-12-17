@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>QUẢN LÍ HỌC VIÊN</title>
+  <title>QUẢN LÍ DANH MỤC</title>
   <link rel="stylesheet" type="text/css" href="css-formadmin.css">
   <link rel="stylesheet" type="text/css" href="../package/bootstrap-4.1.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="../package/FontAwesome.4.7.0/Content/Content/font-awesome.css">
@@ -15,8 +15,8 @@
   <script type="text/javascript" src="Script.js"></script>
 
   <script>
-    function xoahv() {
-      alert('Học viên đã được xóa!');
+    function xoadm() {
+      alert('Danh mục đã được xóa!');
     }
   </script>
   <?php
@@ -30,7 +30,7 @@
       die('kết nối không thành công ' . mysqli_connect_error());
   }
   ?>
- 
+
 </head>
 
 <body style="background: #E6E6FA">
@@ -119,17 +119,17 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3 offset-md-2">
-        <form title="THÊM GIẢNG VIÊN">
+        <form title="THÊM DANH MỤC">
           <button type="button" class="button1 " data-toggle="modal" data-target="#exampleModalCenter">
             <font face="cursive"> ADD</font>
           </button>
           <!--modal-->
           <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true" >
+            aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content" style="background: #E6E6FA;">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">Nhập Thông Tin Học Viên </h5>
+                  <h5 class="modal-title" id="exampleModalLongTitle">Nhập Thông Tin Danh Mục </h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -138,28 +138,9 @@
                   <!--nội dung plugin-->
                   <table>
                     <tr>
-                      <td>Tên Học Viên</td>
+                      <td>Nhập Tên Danh Mục</td>
                       <td>
                         <input type="text" name="Name.." id="ten_hv">
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td>Tuổi</td>
-                      <td>
-                        <input type="text" name="Age.." id="tuoi_hv">
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Số Điện Thoại</td>
-                      <td>
-                        <input type="text" name="PhoneNumber.." id="sodienthoai_hv">
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Email</td>
-                      <td>
-                        <input type="text" name="Email.." id="email_hv">
                       </td>
                     </tr>
                   </table>
@@ -179,16 +160,13 @@
     <br><br>
     <!---->
     <table class="table table-hover">
-       <thead>
-       <td>STT</td>
-       <td>Tên Học Viên</td>
-       <td>Tuổi</td>
-       <td>Số Điện Thoại</td>
-       <td>Email</td>
-       <td>Chức Năng</td>
-       </thead>
-       <tbody>
-       <?php
+      <thead style="background: #CCCC66;">
+        <td>STT</td>
+        <td>Tên Danh Mục</td>
+        <td>Chức Năng</td>
+      </thead>
+      <tbody>
+        <?php
  // khởi tạo kết nối
 $connect = mysqli_connect('localhost', 'root', '', 'qlkhoahocttnk');
 // để hiện thị tiếng việt
@@ -198,73 +176,56 @@ if (!$connect) {
     die('kết nối không thành công ' . mysqli_connect_error());
 }
 
-$sql = "SELECT * FROM student";
+$sql = "SELECT * FROM category";
 //kiểm tra
 if ($result = mysqli_query($connect, $sql)) {
     while ($row = mysqli_fetch_array($result)) {
   ?>
-    <tbody>
-       <td><?php echo $row['ID'] ?></td>
-       <td><?php echo $row['name'] ?></td>
-       <td><?php echo $row['age'] ?></td>
-       <td><?php echo $row['phoneNumber'] ?></td>
-       <td><?php echo $row['email'] ?></td>
-       <td>
-       <button type="button" title="SỬA THÔNG TIN HỌC VIÊN" class="buttonsmall" data-toggle="modal" data-target="#exampleModalCenter1">
-          <h5> SỬA</h5>
-        </button>
-        <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Nhập Thông  Tin Học Viên </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <!--nội dung plugin-->
-                <table>
-                  <tr>
-                    <td>Nhập tên Học Viên</td>
-                    <td>
-                      <input type="text" name="Name.." id="ten_gv">
-                    </td>
-                  </tr>
-              
-                  <tr>
-                    <td>Nhập tuổi</td>
-                    <td>
-                      <input type="text" name="Date.." id="namsinh_gv">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Nhập số điện thoại</td>
-                    <td>
-                      <input type="text" name="Date.." id="namsinh_gv">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Nhập email</td>
-                    <td>
-                      <input type="text" name="Date.." id="namsinh_gv">
-                    </td>
-                  </tr>
-                </table>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+      <tbody>
+        <td>
+          <?php echo $row['ID'] ?>
+        </td>
+        <td>
+          <?php echo $row['Name'] ?>
+        </td>
+        <td>
+          <button type="button" title="SỬA THÔNG TIN DANH MỤC" class="buttonsmall" data-toggle="modal" data-target="#exampleModalCenter1">
+            <h5> SỬA</h5>
+          </button>
+          <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Nhập Thông Tin Danh Mục </h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <!--nội dung plugin-->
+                  <table>
+                    <tr>
+                      <td>Nhập Tên Danh Mục</td>
+                      <td>
+                        <input type="text" name="Name.." id="ten_gv">
+                      </td>
+                    </tr>
+                  </table>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <button type="button" title="XÓA HỌC VIÊN" class="buttonsmall" onclick="xoahv();">
-          <h5>XÓA</h5>
-        </button>
-       </td>
-       </tbody>
- <?php
+          <button type="button" title="XÓA DANH MỤC" class="buttonsmall" onclick="xoadm();">
+            <h5>XÓA</h5>
+          </button>
+        </td>
+      </tbody>
+      <?php
     }
 } else
     //Hiện thông báo khi không thành công
@@ -272,7 +233,7 @@ if ($result = mysqli_query($connect, $sql)) {
 //ngắt kết nối
 mysqli_close($connect);
  ?>
-       </tbody>
+      </tbody>
     </table>
   </div>
 </body>

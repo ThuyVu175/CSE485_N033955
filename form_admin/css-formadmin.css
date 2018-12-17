@@ -28,9 +28,23 @@ input[type="text"] {
     width:280px; 
     background: #E6E6FA;
 }
+input[type="password"] {
+    width: 200px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 4px;
+    outline:none;
+    padding: 8px 10px;
+
+    transition:0.6s ease-in-out;
+  }
+  input[type="password"]:focus{
+    width:280px; 
+    background: #E6E6FA;
+}
 
 #menu {
-    background:#7B68EE;
+    background:#777777;
     width: 100%;
     height: auto;
 }
@@ -84,14 +98,14 @@ input[type="text"] {
 }
 .buttonsmall {
     border-radius: 10px;
-    background-color: #EAA502;
+    background-color: #CCFF99;
     color: black;
     height: 30px;
     width: 70px;
 }
 
 #footer {
-    background-image: url("../img/footer.jpg");
+    background-color: #F5DEB3;
     background-size: 100% 500px;
     background-repeat: no-repeat;
     padding-top: 80px;
