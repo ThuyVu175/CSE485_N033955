@@ -36,20 +36,20 @@
 								<a href="" type="hide" id="Name"></a>
 							</li>
 							<li ><button class="btn btn-danger" data-toggle="modal" data-target="#formSignUp" id="head-signup">
-									Đăng ký
-								</button>
-								
-							</li>
-							<li id="logout"></li>
+								Đăng ký
+							</button>
 
-								
-							</ul>
-						</div>						
-					</div>					
-				</div>				
-			</div>
-		</div>
-	</div>	
+						</li>
+						<li id="logout"></li>
+
+
+					</ul>
+				</div>						
+			</div>					
+		</div>				
+	</div>
+</div>
+</div>	
 
 </body>
 </html>
@@ -85,78 +85,98 @@
 					<button type="button" class="btn btn-secondary col-md-4" >Close</button>
 				</div>
 			</div>
-
 		</div>
 	</div>
 </div>
 
 <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" id="formSignUp">
 	<div class="modal-dialog" role="document">
-		<form action='' method='POST' role='form'>
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title" id="exampleModalLabel">Đăng ký thành viên</h4>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div class="row mt-3">
-						<div class="col-md-4">
-							<label>Tên tài khoản</label>
+		
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="exampleModalLabel">Đăng ký thành viên</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>			
+			<div class="modal-body">
+				<form action='#' method='POST' role='form'>
+					<div class="row mt-2">
+						<div class="row container">
+							<div class="col-md-4">
+								<label>Tên tài khoản</label>
+							</div>
+							<div class="col-md-8">
+								<input class="form-control" type="text" name="usernameSignUp" placeholder="Nhập tên tài khoản" id="usernameSignUp">
+							</div>
 						</div>
-						<div class="col-md-8">
-							<input class="form-control" type="text" name="" placeholder="Nhập tên tài khoản" id="usernameSignUp">
+						<div class="row container">
+							<span id="NoteUserName"></span>
+						</div>
+						
+					</div>
+					<div class="row mt-4">
+						<div class="row container">
+							<div class="col-md-4">
+								<label>Mật khẩu:</label>
+							</div>
+							<div class="col-md-8 ">
+								<input type="password" class="form-control" name="passwordSignUp" placeholder="Nhập mật khẩu" id="passwordSignUp">
+							</div>
+						</div>					
+						<div class="row container">
+							<span id="NotePassWord"></span>
 						</div>
 					</div>
-					<div class="row mt-3">
-						<div class="col-md-4">
-							<label>Mật khẩu:</label>
+					<div class="row mt-4">
+						<div class="row container">
+							<div class="col-md-4">
+								<label>Nhập lại mật khẩu:</label>
+							</div>
+							<div class="col-md-8">
+								<input class="form-control" type="password" name="confirmPasswordSignUp" placeholder="Nhập lại mật khẩu" id="confirmPasswordSignUp">
+							</div>
 						</div>
-						<div class="col-md-8 ">
-							<input type="password" class="form-control" name="" placeholder="Nhập mật khẩu" id="passwordSignUp">
+						<div class="row container">
+							<span id="NoteConfirmPassWord"></span>
+						</div>
+						
+					</div>
+					<div class="row mt-4">
+						<div class="row container">
+							<div class="col-md-4">
+								<label>Email</label>
+							</div>
+							<div class="col-md-8 ">
+								<input type="email" class="form-control" name="emailSignUp" id="emailSignUp" placeholder="abc@email.com">
+							</div>
+						</div>
+						<div class="row container">
+							<span id="NoteEmail"></span>
+						</div>
+						
+					</div>
+					<div class="row mt-4">
+						<div class="row container">
+							<div class="col-md-4">
+								<label>Số điện thoại:</label>
+							</div>
+							<div class="col-md-8 ">
+								<input type="text" class="form-control" name="phoneNumberSignUp" placeholder="Nhập số điện thoại" id="phoneNumberSignUp">
+							</div>
+						</div>
+						<div class="row container">
+							<span id="NotePhoneNumber"></span>
 						</div>
 					</div>
-					<div class="row mt-3">
-						<div class="col-md-4">
-							<label>Nhập lại mật khẩu:</label>
-						</div>
-						<div class="col-md-8">
-							<input class="form-control" type="password" name="" placeholder="Nhập lại mật khẩu" id="confirmPasswordSignUp">
-						</div>
-					</div>
-					<div class="row mt-3">
-						<div class="col-md-4">
-							<label>Email</label>
-						</div>
-						<div class="col-md-8 ">
-							<input type="email" class="form-control" name="" placeholder="abc@email.com">
-						</div>
-					</div>
-					<div class="row mt-3">
-						<div class="col-md-4">
-							<label>Số điện thoại:</label>
-						</div>
-						<div class="col-md-8 ">
-							<input type="text" class="form-control" name="" placeholder="Nhập số điện thoại">
-						</div>
-					</div>
-					<div class="row mt-3">
-						<div class="col-md-4">
-							<label>Tuổi</label>
-						</div>
-						<div class="col-md-8">
-							<input class="form-control" type="text" name=""placeholder="Nhập Tuổi" >
-						</div>
-					</div>
-
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-danger" data-dismiss="modal">Đăng ký</button>
-					<button type="button" class="btn btn-primary">Thoát</button>
-				</div>
+					<span id="error" class="row text-danger"></span>	
+				</form>		
+			</div>							
+			<div class="modal-footer mt-4">
+				<button type="button" class="btn btn-danger"  onclick="SignUp()">Đăng ký</button>
+				<button type="button" data-dismiss="modal" class="btn btn-primary">Thoát</button>
 			</div>
-		</form>
+		</div>
 	</div>
 </div>
 <script type="text/javascript">
@@ -176,11 +196,11 @@
 					$('#head-login').hide();
 					$('#formLogin').modal('hide');
 					$('#Name').html("Xin chào "+username+"!");
-					
+
 				}						
 				else{
 					$('#validate').html("Sai tài khoản hoặc mật khẩu");
-					//$('#formlogin').modal('show');
+					$('#formlogin').modal('show');
 				}
 			}
 		});
@@ -193,4 +213,44 @@
 		$('#Name').hide();
 	}
 
+	function SignUp(){
+		var usernameSignUp= $('#usernameSignUp').val();
+		var passwordSignUp= $('#passwordSignUp').val();
+		var confirmPasswordSignUp= $('#confirmPasswordSignUp').val();
+		var emailSignUp=$("#emailSignUp").val();
+		var phoneNumberSignUp= $("#phoneNumberSignUp").val();
+		
+
+		$.ajax({
+			url: "Xuly/SignUp.php",
+			type: "post",
+			data: {
+				usernameSignUp: usernameSignUp,
+				passwordSignUp: passwordSignUp,
+				confirmPasswordSignUp: confirmPasswordSignUp,
+				emailSignUp: emailSignUp,
+				phoneNumberSignUp: phoneNumberSignUp
+			},
+			success: function(result){
+				if (result==1) {
+					alert("Đăng ký thành công!");
+					$("#formSignUp").modal('hide');
+				}							
+				if(result==2){
+					$('#formSignUp').modal('show');
+					$('#error').html("Tên đăng nhập hoặc email đã tồn tại");
+					
+				}
+				if(result==3){
+
+					$("#NoteConfirmPassWord").html("Mật khẩu chưa đúng!");
+					$('#formSignUp').modal('show');
+				
+				}
+
+			}
+		});
+	}
+
+	
 </script>
