@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>TRUNG TÂM NĂNG KHIẾU ABC</title>
-	<link rel="stylesheet" type="text/css" href="css-js/Index.css">
+	<link rel="stylesheet" type="text/css" href="css-formadmin.css">
 	<link rel="stylesheet" type="text/css" href="../package/bootstrap-4.1.3/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../package/FontAwesome.4.7.0/Content/Content/font-awesome.css">
 	<script type="text/javascript" src="../package/jQuery.3.3.1/Content/Scripts/jquery-3.3.1.min.js"></script>
@@ -19,39 +19,33 @@
 	<div id="header" class="">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3 " >
-					<img src="../img/logobale.png" id="logo" >
+				<div class="col-md-2 " >
+					<img src="../img/logobale.png" id="logohead" >
 
 				</div>
-				<div class="col-md-9">
-					<div class="row mt-2">
-						
-						<h2 class="">TRUNG TÂM PHÁT TRIỂN NGHỆ THUẬT EAM</h2>
-					</div>
-					<div class="row mt-2">
-						<div class="col-md-5 offset-md-7">
-							<ul class="pt-1">
-								<li ><button class="btn btn-danger" data-toggle="modal" data-target="#formLogin" id="head-login">
-									Đăng Nhập
-								</button> 
-								<a href="" type="hide" id="Name"></a>
+				<div class="col-md-10">
+				
+					<h1 style="text-shadow: 2px 2px 8px #FF0000;color: black;font-family: cursive;padding-left: 250px;padding-top: 20px;">EAM</h1>
+					<h2 class="h2">TRUNG TÂM PHÁT TRIỂN NGHỆ THUẬT EAM</h2>
+					
+					<ul class="nav col-md-3 offset-md-9">
+						<li class="">
+							<button class="btn btn-danger" data-toggle="modal" data-target="#formLogin" id="head-login">
+								Đăng Nhập
+							</button> 
+							<a href="" type="hide" id="Name"></a>
 							</li>
-							<li ><button class="btn btn-danger" data-toggle="modal" data-target="#formSignUp" id="head-signup">
+						<li class="nav-item">
+							<button class="btn btn-danger" data-toggle="modal" data-target="#formSignUp" id="head-signup">
 								Đăng ký
 							</button>
-
 						</li>
-						<li id="logout"></li>
-
-
+						<li id="logout"></li> 
 					</ul>
 				</div>						
 			</div>					
 		</div>				
 	</div>
-</div>
-</div>	
-
 </body>
 </html>
 
