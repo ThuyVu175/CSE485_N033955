@@ -64,14 +64,14 @@
 								</div>
 								<div class="col-md-4 text-warning text-left aboutUs">
 
-									<p>Yên tâm gửi gắm</p>
+									<p>Mục tiêu giáo dục</p>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-4"></div>
 								<div class="text-left col-md-6">
 									<p>
-										Với một lộ trình khoa học, giúp đỡ học viên đi từ căn bản đến nâng cao. Giúp học viên có những ký năng chuyên môn trong các lĩnh vực năng khứu và nghệ thuật...
+										Cung cấp cho học viên kiến thức nền tảng về các môn năng khiếu. Giúp các học viên khơi nguồn đam mê Nghệ thuật cũng như phát hiện năng khiếu của mình để có thể định hướng nghề nghiệp cho tương lai của các em.
 									</p>
 								</div>
 							</div>
@@ -92,7 +92,7 @@
 								<div class="col-md-4"></div>
 								<div class="text-left col-md-6">
 									<p>
-										Đội ngũ giảng viên có nhiều năm kinh nghiệm. Đã từng đoạt các giải thưởng trong các lĩnh vực giảng dạy. Giáo viên nhiệt tình, tận tâm...
+										Đội ngũ giảng viên có nhiều năm kinh nghiệm. Đã từng đoạt các giải thưởng trong các lĩnh vực giảng dạy. Họ là những người giỏi về chuyên môn, giàu kinh nghiệm giảng dạy, rất tâm lý và nhiệt huyết trong việc truyền đạt cho các học viên không chỉ là kiến thức chuyên môn thuần túy mà còn là phương pháp học tập hiệu quả, tác phong làm việc nghiêm túc, đạo đức lối sống lành mạnh.
 									</p>
 								</div>
 							</div>
@@ -107,14 +107,16 @@
 								</div>
 								<div class="col-md-4 text-warning text-left aboutUs">
 
-									<p>Lộ trình</p>
+									<p>Cơ sở vật chất</p>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-4"></div>
 								<div class="text-left col-md-6">
 									<p>
-										Với một lộ trình khoa học, giúp đỡ học viên đi từ căn bản đến nâng cao. Giúp học viên có những ký năng chuyên môn trong các lĩnh vực năng khứu và nghệ thuật...
+										Học sinh đăng kí học tại <span class="text-danger">
+											Trung tâm Phát triển nghệ thuật EAM
+										</span> sẽ được học tập trong Môi trường lành mạnh, tiện nghi, với hệ thống phòng học đúng tiêu chuẩn, chất lượng: rộng rãi, thoáng mát, số lượng học sinh giới hạn giúp giáo viên sâu sát được học sinh và học sinh có thể tiếp thu bài hiệu quả nhất.
 									</p>
 								</div>
 							</div>
@@ -138,7 +140,7 @@
 					include("Xuly/cnn.php");
 							//query
 					mysqli_set_charset($cnn, "utf8");
-					$sql="SELECT image,name,description FROM lecturer WHERE isActive=1 AND ID<=6";
+					$sql="SELECT image,name,generalDescription FROM lecturer WHERE isActive=1 AND ID<=6";
 					$result=mysqli_query($cnn, $sql);
 							//
 					if(!$result){
@@ -149,7 +151,7 @@
 						echo '<div class="box col-md-4">';
 						echo '<img src="'.$row['image'].'" class="lecturers">';
 						echo '<h3 class="name mt-2">'.$row['name'].'</h3>';
-						echo '<p class="description">'.$row['description'].'</p>
+						echo '<p class="generalDescription">'.$row['generalDescription'].'</p>
 						<a href="#" class="learn-more">Xem thêm</a>';
 						echo "</div>";
 								# code...

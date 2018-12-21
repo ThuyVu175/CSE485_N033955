@@ -14,6 +14,10 @@
 				include "LuyenThanh.php";
 			if($page =='NhacCu')
 				include "NhacCu.php";
+			if($page =='GiangVien')
+				include "lecturers.php";
+			if($page =='LienHe')
+				include "LienHe.php";
 			
 			?>
 		</div>

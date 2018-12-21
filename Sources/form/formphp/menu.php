@@ -16,6 +16,9 @@
 						</div>
 					</li>
 					<li class="nav-item">
+						<a class="nav-link" href="Index.php?page=GiangVien" >Giảng viên</a>
+					</li>
+					<li class="nav-item">
 						<a class="nav-link" href="Index.php?page=MyThuat" >Mỹ thuật</a>
 					</li>
 					<li class="nav-item">
@@ -29,6 +32,9 @@
 					</li>
 					<li class="nav-item">
 						<a class="nav-link " href="Index.php?page=NhacCu">Nhạc cụ</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="Index.php?page=LienHe" >Liên hệ</a>
 					</li>
 				</ul>
 				<form class="form-inline my-2 my-lg-0">

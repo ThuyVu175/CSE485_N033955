@@ -32,6 +32,10 @@
     <div class="row">
     <button class="btn btn-warning">Đăng ký tư vấn</button>
     </div>
+    <input type="" name="">
+    <?php 
+      echo '<input value='.$row['ID'].' name="myThuatID" type="hide" id="myThuatID">';
+     ?>
     </div>
     </div>
   <?php } ?>

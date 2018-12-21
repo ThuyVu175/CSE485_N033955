@@ -17,7 +17,7 @@
     <div class="row mt-5">
     <div class="col-md-3">
     
-    <?php echo '<img src='.$row['image'].' style="width: 250px; ">'; ?>
+    <?php echo '<img src='.$row['image'].' style="width: 250px;  ">'; ?>
     </div>
     <div class="col-md-7 ml-4">
     <div class="row">
