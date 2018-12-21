@@ -1,15 +1,5 @@
 
 
-
-
-
-
-
-
-
-
-
-
 <nav class="navbar navbar-expand-md navbar-dark sticky-top" id="menu">
     <a class="navbar-brand" href="#">
       <img src="../img/home.jpg" style="width: 40px; ">

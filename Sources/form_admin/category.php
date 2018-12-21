@@ -3,17 +3,39 @@
     function xoadm() {
       alert('Danh mục đã được xóa!');
     }
+
   </script>
   <?php
-   $servername = "localhost";
-   $username = "root";
-   $password = "";
-   $dbname = "qlkhoahocttnk";
-  $connect = mysqli_connect('localhost', 'root', '', 'qlkhoahocttnk');
-  //Kiểm tra kết nối
-  if (!$connect) {
-      die('kết nối không thành công ' . mysqli_connect_error());
-  }
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "qlkhoahocttnk";
+    $connect = mysqli_connect('localhost', 'root', '', 'qlkhoahocttnk');
+    //Kiểm tra kết nối
+    if (!$connect) {
+        die('kết nối không thành công ' . mysqli_connect_error());
+    }
+    mysqli_set_charset($connect, 'UTF8');
+    $Name = "";
+    //Lấy giá trị POST từ form vừa submit
+    if ($_SERVER["REQUEST_METHOD"] == "POST") { 
+      if(isset($_POST["Name"])) { $Name = $_POST['Name']; }
+
+      //Code xử lý, insert dữ liệu vào table
+      $sql = "INSERT INTO category (Name, createDate, isActive)
+      VALUES ('$Name', NOW(),1)";
+
+      if (mysqli_query($connect, $sql)) {
+        echo "<script>";
+        echo "alert('Thêm Danh Mục Thành Công !');";  
+        echo "</script>";
+      } else {
+          echo "Error: " . $sql . "<br>" . mysqli_error($connect);
+    }
+}
+
+//Đóng database
+mysqli_close($connect);
   ?>
 
 <body style="background: #E6E6FA">
@@ -23,12 +45,14 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3 ">
-        <form title="THÊM DANH MỤC">
-          <button type="button" class="button1 " data-toggle="modal" data-target="#exampleModalCenter">
+
+
+        <form title="THÊM DANH MỤC" action="" method="post">
+        <button type="button" class="button1 " data-toggle="modal" data-target="#exampleModalCenter">
             <font face="cursive"> ADD</font>
           </button>
-          <!--modal-->
-          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content" style="background: #E6E6FA;">
@@ -42,16 +66,13 @@
                   <!--nội dung plugin-->
                   <table>
                     <tr>
-                      <td>Nhập Tên Danh Mục</td>
-                      <td>
-                        <input type="text" name="Name.." id="ten_hv">
-                      </td>
+                        <th>Tiêu đề:</th>
+                        <td><input type="text" name="Name" value=""></td>
                     </tr>
                   </table>
-                </div>
+                                </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+                  <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>
               </div>
             </div>
@@ -69,7 +90,7 @@
     </div>
     <br><br>
     <!---->
-    <table class="table table-hover" >
+    <table class="table table-hover " >
       <thead style="background: #CCCC66;">
         <td  WIDTH= "200px">STT</td>
         <td  WIDTH= "300px">Tên Danh Mục</td>
@@ -77,21 +98,21 @@
          <td>Chức Năng</td>
       </thead>
       <tbody>
-        <?php
- // khởi tạo kết nối
-$connect = mysqli_connect('localhost', 'root', '', 'qlkhoahocttnk');
-// để hiện thị tiếng việt
-mysqli_set_charset($connect, 'UTF8');
-//Kiểm tra kết nối
-if (!$connect) {
-    die('kết nối không thành công ' . mysqli_connect_error());
-}
+      <?php
+        // khởi tạo kết nối
+        $connect = mysqli_connect('localhost', 'root', '', 'qlkhoahocttnk');
+        // để hiện thị tiếng việt
+        mysqli_set_charset($connect, 'UTF8');
+        //Kiểm tra kết nối
+        if (!$connect) {
+            die('kết nối không thành công ' . mysqli_connect_error());
+        }
 
-$sql = "SELECT * FROM category";
-//kiểm tra
-if ($result = mysqli_query($connect, $sql)) {
-    while ($row = mysqli_fetch_array($result)) {
-  ?>
+        $sql = "SELECT * FROM category";
+        //kiểm tra
+        if ($result = mysqli_query($connect, $sql)) {
+            while ($row = mysqli_fetch_array($result)) {
+      ?>
       <tbody>
         <td>
           <?php echo $row['ID'] ?>
@@ -128,7 +149,7 @@ if ($result = mysqli_query($connect, $sql)) {
                   </table>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
                   </div>
                 </div>
               </div>

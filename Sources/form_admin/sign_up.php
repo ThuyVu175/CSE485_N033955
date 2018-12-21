@@ -1,7 +1,7 @@
 
   <script>
-    function xoahv() {
-      alert('Học viên đã được xóa!');
+    function xoadk() {
+      alert('Đăng kí đã được xóa!');
     }
   </script>
   <?php
@@ -19,14 +19,6 @@
   <!--noi dung-->
   <div class="container">
     <div class="row">
-      <div class="col-md-3 ">
-        <form title="THÊM GIẢNG VIÊN">
-          <button type="button" class="button1 " data-toggle="modal" data-target="#addStudent">
-            <font face="cursive"> ADD</font>
-          </button>
- 
-        </form>
-      </div>
       <div class="col-md-5 offset-md-4" style="padding-top: 50px;">
         <button type="submit" class="buttonsearch">
            <img src="../img/search.png" style="width: 34px;height: auto; ">
@@ -39,11 +31,8 @@
     <div class="row">
       <table class="table table-hover" bgcolor="">
         <thead style="background: #CCCC66;">
-          <td>STT</td>
-          <td>Tên Học Viên</td>
-          <td>Tuổi</td>
-          <td>Số Điện Thoại</td>
-          <td>Email</td>
+          <td>Tên Tài Khoản</td>
+          <td>Tên Môn Học</td>
           <td>Ngày Tạo</td>
           <td>Chức Năng</td>
         </thead>
@@ -57,19 +46,16 @@
             if (!$connect) {
                 die('kết nối không thành công ' . mysqli_connect_error());
             }
-
-            $sql = "SELECT * FROM student";
+            $sql = "SELECT `account`.`accountName`,`subjects`.`Name`,`sign_up`.`createdDate` FROM `account`,`subjects`,`sign_up`
+             WHERE `account`.`ID`=`sign_up`.`accountID` AND `subjects`.`ID`=`sign_up`.`subjectID`";
             //kiểm tra
             if ($result = mysqli_query($connect, $sql)) {
                 while ($row = mysqli_fetch_array($result)) {
-                  ?>
+          ?>
           <tr>
-            <td><?php echo $row['ID'] ?></td>
-            <td><?php echo $row['name'] ?></td>
-            <td><?php echo $row['age'] ?></td>
-            <td><?php echo $row['phoneNumber'] ?></td>
-            <td><?php echo $row['email'] ?></td>
-            <td><?php echo $row['createDate'] ?></td>
+            <td><?php echo $row['accountName'] ?></td>
+            <td><?php echo $row['Name'] ?></td>
+            <td><?php echo $row['createdDate'] ?></td>
             <td>
             <button type="button" title="SỬA THÔNG TIN HỌC VIÊN" class="buttonsmall" data-toggle="modal" data-target="#editStudent">
                 <h5> SỬA</h5>
