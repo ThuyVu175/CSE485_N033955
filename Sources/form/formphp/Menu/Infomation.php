@@ -114,9 +114,9 @@
 								<div class="col-md-4"></div>
 								<div class="text-left col-md-6">
 									<p>
-										Học sinh đăng kí học tại <span class="text-danger">
+										Học sinh đăng kí học tại <a href="Index.php" style="text-decoration: none;"><span class="text-danger">
 											Trung tâm Phát triển nghệ thuật EAM
-										</span> sẽ được học tập trong Môi trường lành mạnh, tiện nghi, với hệ thống phòng học đúng tiêu chuẩn, chất lượng: rộng rãi, thoáng mát, số lượng học sinh giới hạn giúp giáo viên sâu sát được học sinh và học sinh có thể tiếp thu bài hiệu quả nhất.
+										</span></a> sẽ được học tập trong Môi trường lành mạnh, tiện nghi, với hệ thống phòng học đúng tiêu chuẩn, chất lượng: rộng rãi, thoáng mát, số lượng học sinh giới hạn giúp giáo viên sâu sát được học sinh và học sinh có thể tiếp thu bài hiệu quả nhất.
 									</p>
 								</div>
 							</div>
@@ -140,7 +140,7 @@
 					include("Xuly/cnn.php");
 							//query
 					mysqli_set_charset($cnn, "utf8");
-					$sql="SELECT image,name,generalDescription FROM lecturer WHERE isActive=1 AND ID<=6";
+					$sql="SELECT * FROM lecturer WHERE isActive=1 AND ID<=6";
 					$result=mysqli_query($cnn, $sql);
 							//
 					if(!$result){
@@ -148,74 +148,75 @@
 						exit();
 					}
 					while ($row= mysqli_fetch_array($result)) {
-						echo '<div class="box col-md-4">';
-						echo '<img src="'.$row['image'].'" class="lecturers">';
-						echo '<h3 class="name mt-2">'.$row['name'].'</h3>';
-						echo '<p class="generalDescription">'.$row['generalDescription'].'</p>
-						<a href="#" class="learn-more">Xem thêm</a>';
-						echo "</div>";
-								# code...
-					}
-					?>
-				</div>				
-			</div>
-		</div>
-	</div>
-	<!--GIẢNG VIÊN-->
-	<div id="evaluate" class="bg-light row">
-		<div class="container">
-			<div class="row">
-				<h3 class="text-danger text-center mt-2 col-md-12">Cảm nhận của học viên</h3>
-			</div>
-			<div class="row mt-4">
-				<div class="col-md-6">
-					<div class="row ">
-						<div class="col-md-4 ">
-							<img src="../img/hocvien1.jpg" class="imgEvaluate rounded-circle">
-						</div>
-						<div class="col-md-8">
-							<h5 class="p-2">Nguyễn Trần Anh Thư</h5>
-							<p class="pl-2">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.Praesent aliquam in tellus eu.</p>
-						</div>
-					</div>
-
-					<div class="row mt-2">
-						<div class="col-md-4 ">
-							<img src="../img/hocvien2.jpg" class="imgEvaluate rounded-circle ">
-						</div>
-						<div class="col-md-8">
-							<h5 class="p-2">Nguyễn Anh Quân</h5>
-							<p class="pl-2">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.Praesent aliquam in tellus eu.</p>
-						</div>
-					</div>						
-				</div>
-
-				<div class="col-md-6">
-					<div class="row ">
-						<div class="col-md-4 ">
-							<img src="../img/hocvien3.jpg" class="imgEvaluate rounded-circle">
-						</div>
-						<div class="col-md-8">
-							<h5 class="p-2">Trần Thị Khánh Ly</h5>
-							<p class="pl-2">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.Praesent aliquam in tellus eu.</p>
-						</div>
-					</div>
-					<div class="row mt-2">
-						<div class="col-md-4 ">
-							<img src="../img/hocvien4.jpg" class="imgEvaluate rounded-circle">
-						</div>
-						<div class="col-md-8">
-							<h5 class="p-2">Phạm Mạnh Hiếu</h5>
-							<p class="pl-2">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.Praesent aliquam in tellus eu.</p>
-						</div>
-					</div>
+						?>
+						<div class="box col-md-4">
+							<img src="<?php echo $row["image"]?>" class="lecturers" style="width: 180px;height: 200px;">
+							<h3 class="name mt-2"><?php echo $row["name"]; ?></h3>
+							<p class="generalDescription">
+								<?php echo $row["generalDescription"]; ?>
+							</p>
+							<a href="detailLecturer.php?id=<?php echo $row['ID'] ?>" class="learn-more">Xem thêm</a>
+						</div>	
+					<?php } ?>				
 				</div>
 			</div>
 		</div>
-
 	</div>
+		<!--GIẢNG VIÊN-->
+		<div id="evaluate" class="bg-light row">
+			<div class="container">
+				<div class="row">
+					<h3 class="text-danger text-center mt-2 col-md-12">Cảm nhận của học viên</h3>
+				</div>
+				<div class="row mt-4">
+					<div class="col-md-6">
+						<div class="row ">
+							<div class="col-md-4 ">
+								<img src="../img/hocvien1.jpg" class="imgEvaluate rounded-circle">
+							</div>
+							<div class="col-md-8">
+								<h5 class="p-2">Nguyễn Trần Anh Thư</h5>
+								<p class="pl-2">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.Praesent aliquam in tellus eu.</p>
+							</div>
+						</div>
 
-	<!--SLIDESHOW-->
+						<div class="row mt-2">
+							<div class="col-md-4 ">
+								<img src="../img/hocvien2.jpg" class="imgEvaluate rounded-circle ">
+							</div>
+							<div class="col-md-8">
+								<h5 class="p-2">Nguyễn Anh Quân</h5>
+								<p class="pl-2">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.Praesent aliquam in tellus eu.</p>
+							</div>
+						</div>						
+					</div>
 
-	<!--Cảm nhận-->
+					<div class="col-md-6">
+						<div class="row ">
+							<div class="col-md-4 ">
+								<img src="../img/hocvien3.jpg" class="imgEvaluate rounded-circle">
+							</div>
+							<div class="col-md-8">
+								<h5 class="p-2">Trần Thị Khánh Ly</h5>
+								<p class="pl-2">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.Praesent aliquam in tellus eu.</p>
+							</div>
+						</div>
+						<div class="row mt-2">
+							<div class="col-md-4 ">
+								<img src="../img/hocvien4.jpg" class="imgEvaluate rounded-circle">
+							</div>
+							<div class="col-md-8">
+								<h5 class="p-2">Phạm Mạnh Hiếu</h5>
+								<p class="pl-2">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus.Praesent aliquam in tellus eu.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<!--SLIDESHOW-->
+
+		<!--Cảm nhận-->
 

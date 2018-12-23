@@ -8,13 +8,14 @@
 				<ul class="navbar-nav mr-auto">
 
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Giới thiệu</a>
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="Index.php">Giới thiệu</a>
 						<div class="dropdown-menu">
 							<a class="dropdown-item" href="#aboutUs">Trung tâm</a>
 							<a class="dropdown-item" href="#lecturers">Giảng viên</a>
 							<a class="dropdown-item" href="#evaluate">Cảm nhận</a>
 						</div>
 					</li>
+					
 					<li class="nav-item">
 						<a class="nav-link" href="Index.php?page=GiangVien" >Giảng viên</a>
 					</li>
@@ -38,8 +39,8 @@
 					</li>
 				</ul>
 				<form class="form-inline my-2 my-lg-0">
-					<input class="form-control mr-sm-2" type="text" placeholder="Search">
-					<button class="btn btn-success my-2 my-sm-0" type="button">Search</button>
+					<input class="form-control mr-sm-2" type="text" placeholder="Tìm khóa học">
+					<button class="btn btn-success my-2 my-sm-0 " type="button"><i class="fa fa-search"></i>Tìm kiếm</button>
 				</form>
 			</div>
 		</div>

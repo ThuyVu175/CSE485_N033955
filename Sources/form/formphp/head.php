@@ -32,25 +32,28 @@
 						<div class="col-md-5 offset-md-7">
 							<ul class="pt-1">
 								<li ><button class="btn btn-danger" data-toggle="modal" data-target="#formLogin" id="head-login">
+									<i class="fa fa-sign-in"></i>
 									Đăng Nhập
 								</button> 
 								<a href="" type="hide" id="Name"></a>
-							</li>
-							<li ><button class="btn btn-danger" data-toggle="modal" data-target="#formSignUp" id="head-signup">
-								Đăng ký
-							</button>
+								</li>
+								<li >
+									<button class="btn btn-danger" data-toggle="modal" data-target="#formSignUp" id="head-signup">
+									<i class="fa fa-user"></i>
+									Đăng ký
+									</button>
 
-						</li>
-						<li id="logout"></li>
+								</li>
+								<li id="logout"></li>
 
 
-					</ul>
-				</div>						
-			</div>					
-		</div>				
-	</div>
-</div>
-</div>	
+							</ul>
+						</div>						
+					</div>					
+				</div>				
+			</div>
+		</div>
+	</div>	
 
 </body>
 </html>
@@ -246,7 +249,7 @@
 
 					$("#NoteConfirmPassWord").html("Mật khẩu chưa đúng!");
 					$('#formSignUp').modal('show');
-				
+
 				}
 
 			}

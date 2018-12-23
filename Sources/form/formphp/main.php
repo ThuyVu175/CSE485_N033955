@@ -1,23 +1,27 @@
 <div class="container-fluid" id="main">
 		<div class="row">
 			<?php 
-			$page=isset($_GET["page"])?$_GET["page"]:"";
+			$page = isset($_GET["page"])?$_GET["page"]:"" ;
+			
+			if($page =='')
+				include "Menu/Infomation.php";
 			if($page =='GioiThieu')
-				include "Infomation.php";
+				include "Menu/Infomation.php";
 			if($page =='MyThuat')
-				include "MyThuat.php";
+				include "Menu/MyThuat.php";
 			if($page =='Nhay')
-				include "Nhay.php";
+				include "Menu/Nhay.php";
 			if($page =='Mua')
-				include "Mua.php";
+				include "Menu/Mua.php";
 			if($page =='LuyenThanh')
-				include "LuyenThanh.php";
+				include "Menu/LuyenThanh.php";
 			if($page =='NhacCu')
-				include "NhacCu.php";
+				include "Menu/NhacCu.php";	
 			if($page =='GiangVien')
-				include "lecturers.php";
+				include "Menu/lecturers.php";
 			if($page =='LienHe')
-				include "LienHe.php";
+				include "Menu/LienHe.php";
+
 			
 			?>
 		</div>
