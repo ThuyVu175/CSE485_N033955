@@ -7,23 +7,52 @@
       alert('Học viên đã được xóa!');
     }
   </script>
-  <?php
-   $servername = "localhost";
-   $username = "root";
-   $password = "";
-   $dbname = "qlkhoahocttnk";
-  $connect = mysqli_connect('localhost', 'root', '', 'qlkhoahocttnk');
-  //Kiểm tra kết nối
-  if (!$connect) {
-      die('kết nối không thành công ' . mysqli_connect_error());
+<?php
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "qlkhoahocttnk";
+    $connect = mysqli_connect('localhost', 'root', '', 'qlkhoahocttnk');
+    //Kiểm tra kết nối
+    if (!$connect) {
+        die('kết nối không thành công ' . mysqli_connect_error());
+    }
+    mysqli_set_charset($connect, 'UTF8');
+    $name = "";
+    $age = "";
+    $email = "";
+    $phoneNumber = "";
+    $description = "";
+    $sexual = "";
+    $image = "";
+    //Lấy giá trị POST từ form vừa submit
+    if ($_SERVER["REQUEST_METHOD"] == "POST") { 
+      if(isset($_POST["name"])) { $name = $_POST['name']; }
+      if(isset($_POST["age"])) { $age = $_POST['age']; }
+      if(isset($_POST["email"])) { $email = $_POST['email']; }
+      if(isset($_POST["phoneNumber"])) { $phoneNumber = $_POST['phoneNumber']; }
+      if(isset($_POST["description"])) { $description = $_POST['description']; }
+      if(isset($_POST["sexual"])) { $sexual = $_POST['sexual']; }
+      if(isset($_POST["image"])) { $image = $_POST['image']; }
+      //Code xử lý, insert dữ liệu vào table
+      $sql = "INSERT INTO lecturer (name,age,email,phoneNumber,description,sexual,image, createDate, isActive)
+      VALUES ('$name','$age','$email','$phoneNumber','$description','$sexual','$image', NOW(),1)";
+      if ( (mysqli_query($connect, $sql)) ) {
+        echo "<script>";
+        echo "alert('Thêm Giảng Viên Thành Công !');";  
+        echo "</script>";
+      } 
   }
+
+//Đóng database
+mysqli_close($connect);
   ?>
 <body style="background: #E6E6FA">
   <!--noi dung-->
   <div class="container">
     <div class="row">
       <div class="col-md-3 ">
-        <form title="THÊM GIẢNG VIÊN">
+        <form title="THÊM GIẢNG VIÊN" action="" method="post">
           <button type="button" class="button1 " data-toggle="modal" data-target="#exampleModalCenter">
             <font face="cursive"> ADD</font>
           </button>
@@ -44,35 +73,46 @@
                     <tr>
                       <td>Tên Giảng Viên</td>
                       <td>
-                        <input type="text" name="Name.." id="ten_gv">
+                        <input type="text" name="name" id="ten_gv">
                       </td>
                     </tr>
 
                     <tr>
                       <td>Tuổi</td>
                       <td>
-                        <input type="text" name="Age.." id="tuoi_gv">
+                        <input type="text" name="age" id="tuoi_gv">
                       </td>
                     </tr>
                     <tr>
                       <td>Số Điện Thoại</td>
                       <td>
-                        <input type="text" name="PhoneNumber.." id="sodienthoai_gv">
+                        <input type="text" name="phoneNumber" id="sodienthoai_gv">
                       </td>
                     </tr>
                     <tr>
                       <td>Email</td>
                       <td>
-                        <input type="text" name="Email.." id="email_gv">
+                        <input type="text" name="email" id="email_gv">
                       </td>
-                    </tr>                    
+                    </tr>  
+                    <tr>
+                      <td>Sexual</td>
+                      <td>
+                        <input type="text" name="sexual" id="sex_gv">
+                      </td>
+                    </tr> 
+                    <tr>
+                      <td>Image(URL)</td>
+                      <td>
+                        <input type="text" name="image" id="image_gv">
+                      </td>
+                    </tr>                 
                   </table>
                     <label for="trinhdohocvan"> Mô Tả</label>
-                  <textarea class="form-control" id="mota_gv" rows="3"></textarea>
+                  <textarea class="form-control" name="description" id="mota_gv" rows="3"></textarea>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+                  <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>
               </div>
             </div>

@@ -1,8 +1,6 @@
 
   <script>
-    function xoadm() {
-      alert('Danh mục đã được xóa!');
-    }
+
 
   </script>
   <?php
@@ -20,19 +18,21 @@
     //Lấy giá trị POST từ form vừa submit
     if ($_SERVER["REQUEST_METHOD"] == "POST") { 
       if(isset($_POST["Name"])) { $Name = $_POST['Name']; }
-
       //Code xử lý, insert dữ liệu vào table
       $sql = "INSERT INTO category (Name, createDate, isActive)
       VALUES ('$Name', NOW(),1)";
-
-      if (mysqli_query($connect, $sql)) {
+      $sql1 = "SELECT * FROM `category` WHERE `category`.`Name`='$Name'";// để so sánh xem tên danh mục tồn tại chưa
+      if ( (mysqli_num_rows(mysqli_query($connect, $sql1)))==0) {
+        (mysqli_query($connect, $sql));
         echo "<script>";
         echo "alert('Thêm Danh Mục Thành Công !');";  
         echo "</script>";
       } else {
-          echo "Error: " . $sql . "<br>" . mysqli_error($connect);
+        echo "<script>";
+        echo "alert('Tên Danh Mục Đã Tồn Tại !');";  
+        echo "</script>";
     }
-}
+  }
 
 //Đóng database
 mysqli_close($connect);
@@ -48,11 +48,11 @@ mysqli_close($connect);
 
 
         <form title="THÊM DANH MỤC" action="" method="post">
-        <button type="button" class="button1 " data-toggle="modal" data-target="#exampleModalCenter">
+          <button type="button" class="button1 " data-toggle="modal" data-target="#exampleModalCenter">
             <font face="cursive"> ADD</font>
           </button>
         
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content" style="background: #E6E6FA;">
@@ -92,12 +92,11 @@ mysqli_close($connect);
     <!---->
     <table class="table table-hover " >
       <thead style="background: #CCCC66;">
-        <td  WIDTH= "200px">STT</td>
-        <td  WIDTH= "300px">Tên Danh Mục</td>
-        <td WIDTH= "400px">Ngày Tạo</td>
-         <td>Chức Năng</td>
+
+        <th  WIDTH= "400px">Tên Danh Mục</th>
+        <th WIDTH= "500px">Ngày Tạo</th>
+         <th>Chức Năng</th>
       </thead>
-      <tbody>
       <?php
         // khởi tạo kết nối
         $connect = mysqli_connect('localhost', 'root', '', 'qlkhoahocttnk');
@@ -114,51 +113,59 @@ mysqli_close($connect);
             while ($row = mysqli_fetch_array($result)) {
       ?>
       <tbody>
-        <td>
-          <?php echo $row['ID'] ?>
-        </td>
-        <td>
-          <?php echo $row['Name'] ?>
-        </td>
-        <td>
-          <?php echo $row['createDate'] ?>
-        </td>
-        <td>
-          <button type="button" title="SỬA THÔNG TIN DANH MỤC" class="buttonsmall" data-toggle="modal" data-target="#exampleModalCenter1">
-            <h5> SỬA</h5>
-          </button>
-          <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">Nhập Thông Tin Danh Mục </h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <!--nội dung plugin-->
-                  <table>
-                    <tr>
-                      <td>Nhập Tên Danh Mục</td>
-                      <td>
-                        <input type="text" name="Name.." id="ten_gv">
-                      </td>
-                    </tr>
-                  </table>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+        <tr>
+          <th>
+            <?php echo $row['Name'] ?>
+          </th>
+          <th>
+            <?php echo $row['createDate'] ?>
+          </th>
+          <th>
+            <button type="button" title="SỬA THÔNG TIN DANH MỤC" class="buttonsmall" data-toggle="modal" data-target="#exampleModalCenter1">
+              <h5> SỬA</h5>
+            </button>
+            <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+              aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Nhập Thông Tin Danh Mục </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <!--nội dung plugin-->
+                    <table>
+                      <tr>
+                        <td>Nhập Tên Danh Mục</td>
+                        <td>
+                          <input type="text" name="Name.." id="ten_gv">
+                        </td>
+                      </tr>
+                    </table>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <button type="button" title="XÓA DANH MỤC" class="buttonsmall" onclick="xoadm();">
+            <form method="post" action="">
+            <?php
+                 echo $row['Name'] ;
+            /*
+                  $sql="DELETE FROM category WHERE Name='$Name'";
+                  mysqli_query($connect,$sql) or die('Xóa dữ liệu thất bại!');
+            */ 
+            ?>
+            <button type="button" title="XÓA DANH MỤC" class="buttonsmall" onclick="">
             <h5>XÓA</h5>
-          </button>
-        </td>
+            </button>
+            </form> 
+          </th>
+        </tr>
       </tbody>
       <?php
     }
