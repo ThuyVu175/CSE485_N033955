@@ -1,15 +1,18 @@
+
 <?php 
 	include('formphp/head.php');
 	include('formphp/menu.php');
  ?>
 
+
 <?php 
 	include('Xuly/cnn.php');
 	$id=$_GET['id'];
-	 $sql= "SELECT * FROM subjects WHERE isActive=1 AND ID='$id'";
+	 $sql="SELECT * FROM subjects WHERE isActive=1 AND ID='$id'";
   $result=mysqli_query($con, $sql);
   $sqlImg= "SELECT * FROM image WHERE isActive=1 AND subjectID='$id'";
   $result1=mysqli_query($con, $sqlImg);
+
  while ($row= mysqli_fetch_array($result)) {?>
 <div class="container">
 	 <div class="row mt-5">
@@ -22,7 +25,7 @@
       <div class="col-md-7 ml-4">
         <div class="row">
           <a href="#" style="text-decoration: none;">
-            <h4><?php echo $row["Name"]; ?></h4>
+            <?php echo '<h4>'.$row['Name'].'</h4>'; ?>
           </a>
           
 
@@ -72,6 +75,8 @@
     
   </div>
 </div>
+
+
    
 <?php } ?>
 </div>

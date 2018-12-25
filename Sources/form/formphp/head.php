@@ -35,7 +35,7 @@
 									<i class="fa fa-sign-in"></i>
 									Đăng Nhập
 								</button> 
-								<a href="" type="hide" id="Name"></a>
+								<a href="User.php?username=" type="hide" id="Name"></a>
 								</li>
 								<li >
 									<button class="btn btn-danger" data-toggle="modal" data-target="#formSignUp" id="head-signup">
@@ -194,7 +194,7 @@
 			dataType: 'json',
 			data: {username: username, password: password},
 			success: function(result){
-				if(result==1){
+				if(result==2){
 					$('#head-signup').hide();
 					$('#logout').html("<button id='logout' onclick='Logout()' class='btn btn-danger';> Đăng xuất</button>");
 					$('#head-login').hide();
@@ -202,9 +202,12 @@
 					$('#Name').html("Xin chào "+username+"!");
 
 				}						
-				else{
+				else if(result==0){
 					$('#validate').html("Sai tài khoản hoặc mật khẩu");
 					$('#formlogin').modal('show');
+				}
+				else{
+					window.location.href='../form_admin/admin.php';
 				}
 			}
 		});

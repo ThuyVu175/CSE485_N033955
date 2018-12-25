@@ -12,11 +12,11 @@ $Select= "SELECT * FROM account WHERE isActive=1 AND accountName='$usernameSignU
 
 $Add="INSERT INTO account(accountName, passWord,positionID, createDate, isActive, email, phoneNumber) VALUES('$usernameSignUp', '$bumPass',2,NOW(),1,'$emailSignUp','$phoneNumberSignUp')";
 
-$check= mysqli_query($cnn, $Select);
+$check= mysqli_query($con, $Select);
 
 
 if(mysqli_num_rows($check)==0 && $passwordSignUp== $confirmPasswordSignUp){
-	mysqli_query($cnn, $Add);
+	mysqli_query($con, $Add);
 	echo 1;
 }
 else{

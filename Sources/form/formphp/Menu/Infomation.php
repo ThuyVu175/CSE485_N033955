@@ -139,12 +139,12 @@
 							//connect 
 					include("Xuly/cnn.php");
 							//query
-					mysqli_set_charset($cnn, "utf8");
+					mysqli_set_charset($con, "utf8");
 					$sql="SELECT * FROM lecturer WHERE isActive=1 AND ID<=6";
-					$result=mysqli_query($cnn, $sql);
+					$result=mysqli_query($con, $sql);
 							//
 					if(!$result){
-						die("Không thể thực hiện câu lệnh sql:".mysqli_error($cnn));
+						die("Không thể thực hiện câu lệnh sql:".mysqli_error($con));
 						exit();
 					}
 					while ($row= mysqli_fetch_array($result)) {

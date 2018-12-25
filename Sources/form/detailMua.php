@@ -1,28 +1,31 @@
+
 <?php 
 	include('formphp/head.php');
 	include('formphp/menu.php');
  ?>
 
+
 <?php 
 	include('Xuly/cnn.php');
 	$id=$_GET['id'];
-	 $sql= "SELECT * FROM subjects WHERE isActive=1 AND ID='$id'";
+	 $sql="SELECT * FROM subjects WHERE isActive=1 AND ID='$id'";
   $result=mysqli_query($con, $sql);
   $sqlImg= "SELECT * FROM image WHERE isActive=1 AND subjectID='$id'";
   $result1=mysqli_query($con, $sqlImg);
+
  while ($row= mysqli_fetch_array($result)) {?>
 <div class="container">
 	 <div class="row mt-5">
       <div class="col-md-3">
 
         <a href="#">
-          <img src="<?php echo $row["image"]?>"" style="width: 200px; height: 250px; ">
+          <img src="<?php echo $row["image"]?>" style="width: 200px; height: 250px; ">
         </a>
       </div>
       <div class="col-md-7 ml-4">
         <div class="row">
           <a href="#" style="text-decoration: none;">
-            <h4><?php echo $row["Name"]; ?></h4>
+            <?php echo '<h4>'.$row['Name'].'</h4>'; ?>
           </a>
           
 
@@ -34,9 +37,9 @@
           <div class="col-md-1"></div>
           <div class="col-md-11">
            <?php echo '<h5>'.$row['description'].'</h5>'; ?>
-         </div>
+         </div>     
        </div>
-        <div class="row">
+       <div class="row">
          <button class="col-md-3 btn btn-warning btn btn-warning">
            <i class="fa fa-plus "></i>
            Đăng ký tư vấn
@@ -72,6 +75,8 @@
     
   </div>
 </div>
+
+
    
 <?php } ?>
 </div>

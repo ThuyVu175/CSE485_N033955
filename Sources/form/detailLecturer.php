@@ -7,7 +7,7 @@
 	include('Xuly/cnn.php');
 	$id=$_GET['id'];
 	 $sql="SELECT * FROM lecturer WHERE isActive=1 AND ID='$id'";
-  $result=mysqli_query($cnn, $sql);
+  $result=mysqli_query($con, $sql);
 
  while ($row= mysqli_fetch_array($result)) {?>
 <div class="container">
@@ -21,7 +21,7 @@
       <div class="col-md-7 ml-4">
         <div class="row">
           <a href="#" style="text-decoration: none;">
-            <?php echo '<h4>'.$row['Name'].'</h4>'; ?>
+            <?php echo '<h4>'.$row['name'].'</h4>'; ?>
           </a>
           
 

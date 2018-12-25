@@ -3,12 +3,12 @@
               //connect 
   include("Xuly/cnn.php");
               //query
-  mysqli_set_charset($cnn, "utf8");
+  mysqli_set_charset($con, "utf8");
   $sql="SELECT ID,image,name,generalDescription FROM lecturer WHERE isActive=1 ";
-  $result=mysqli_query($cnn, $sql);
-              //
+  $result=mysqli_query($con, $sql);
+  
   if(!$result){
-    die("Không thể thực hiện câu lệnh sql:".mysqli_error($cnn));
+    die("Không thể thực hiện câu lệnh sql:".mysqli_error($con));
     exit();
   }
   while ($row= mysqli_fetch_array($result)) {?>
@@ -22,7 +22,7 @@
       </div>
       <div class="col-md-7 ml-4">
         <div class="row">
-          <a href="Index.php?page=GiangVien&id=<?php echo $row['ID'] ?>" style="text-decoration: none;">
+          <a href="detailLecturer.php?id=<?php echo $row['ID'] ?>" style="text-decoration: none;">
             <h4><?php echo $row["name"]; ?></h4>
           </a>
           
@@ -42,27 +42,11 @@
         <?php echo'<input id="" type="hidden" name="" value='.$row['ID'].'>'?>
       </div>
       <div class="row mt-5">
-        <button class="btn btn-warning"><i class="fa fa-plus" onclick="seeMoreLecturer($row['ID'])"></i> Xem thêm</button>
+        <a href="detailLecturer.php?id=<?php echo $row['ID'] ?>" class="btn btn-warning"><i class="fa fa-plus" ></i> Xem thêm</a>
       </div>
     </div>
   </div>
 <?php } ?>
 </div>
 
-<script type="text/javascript">
-  function seeMoreLecturer(lecturerID){
-    $.ajax({
-      url: "Xuly/seeMoreLecturer.php",
-      data: {lecturerID: lecturerID},
-      success: function(result){
-        if (result==1) {
-          window.location();
-        }
-        else{
-          alert("lỗi");
-        }
-      }
-    });
-  }
 
-</script>

@@ -4,8 +4,8 @@
 	$server='localhost';
 	$dbName='qlkhoahocttnk';
 	//Kết nối
-	$cnn= mysqli_connect($server, $userName, $passWord, $dbName);
+	$con= mysqli_connect($server, $userName, $passWord, $dbName);
 	//Nếu kết nối lỗi thì thông báo và thoát
-	mysqli_set_charset($cnn, "utf8");
+	mysqli_set_charset($con, "utf8");
 	
 ?>
