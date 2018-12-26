@@ -16,13 +16,13 @@
 
     <div class="row mt-5">
     <div class="col-md-3">
-    <a href="detailMua.php?id=<?php echo $row['ID'] ?>">
+    <a href="detailSubject.php?id=<?php echo $row['ID'] ?>">
     <?php echo '<img src='.$row['image'].' style="width: 250px; ">'; ?>
   </a>
     </div>
     <div class="col-md-7 ml-4">
     <div class="row">
-       <a href="detailMua.php?id=<?php echo $row['ID'] ?>">
+       <a href="detaiSubject.php?id=<?php echo $row['ID'] ?>">
     <?php echo '<h4>'.$row['Name'].'</h4>'; ?>
     </a>
     </div>
@@ -32,9 +32,10 @@
 
     </div>
     <div class="row">
-    <a href="detailMua.php?id=<?php echo $row['ID']?>"class="btn btn-warning">
-      <i class="fa fa-plus"></i>
+    <a href="detailSubject.php?id=<?php echo $row['ID']?>"class="btn btn-warning">
+      
       Xem thêm
+      <i class="fa fa-angle-double-right"></i>
     </a>
     </div>
     </div>
