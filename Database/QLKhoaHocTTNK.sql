@@ -474,3 +474,8 @@ INSERT INTO SIGN_UP
 	VALUES(15,6,GETDATE(),1);
 INSERT INTO SIGN_UP
 	VALUES(14,1,GETDATE(),1);
+-- trigger(mysql)
+CREATE TRIGGER after_category_update 
+AFTER UPDATE ON category
+FOR EACH ROW 
+UPDATE subjects SET isActive=0 WHERE category.ID= subjects.categoryID;
