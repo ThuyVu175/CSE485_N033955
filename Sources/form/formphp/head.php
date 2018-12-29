@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,20 +20,20 @@
 
 <body>
 
-	<div id="header" class="">
-		<div class="container">
+	<div id="header" class="" style="background-color: #BEDF6E;">
+		<div class="container" style="background-image: url('../img/background.png'); ">
 			<div class="row">
 				<div class="col-md-3 " >
 					<img src="../img/logobale.png" id="logo" >
 
 				</div>
-				<div class="col-md-9">
-					<div class="row mt-2">
-						
-						<h2 class="">TRUNG TÂM PHÁT TRIỂN NGHỆ THUẬT EAM</h2>
-					</div>
-					<div class="row mt-2">
-						<div class="col-md-5 offset-md-7">
+				<div class="col-md-9">											
+						<h2 class="" style="width: auto;">TRUNG TÂM PHÁT TRIỂN NGHỆ THUẬT EAM</h2>
+					<div class="row mt-4">
+						<div class="col-md-7">
+							<h3 class="text-danger text-center">Ươm mầm tài năng Việt</h3>
+						</div>
+						<div class="col-md-5 ">
 							<ul class="pt-1">
 								<li ><button class="btn btn-danger" data-toggle="modal" data-target="#formLogin" id="head-login">
 									<i class="fa fa-sign-in"></i>
@@ -191,7 +195,7 @@
 		$.ajax({
 			url: "Xuly/login.php",
 			type: 'post',
-			dataType: 'json',
+			
 			data: {username: username, password: password},
 			success: function(result){
 				if(result==2){

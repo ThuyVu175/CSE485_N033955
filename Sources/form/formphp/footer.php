@@ -1,4 +1,4 @@
-<div id="footer">
+<div id="footer" style="background-color: #BEDF6E">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-6 col-md-4 footer-navigation">
