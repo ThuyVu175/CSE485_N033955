@@ -17,7 +17,7 @@
 <body>
 
 	<div id="header" class="">
-		<div class="container">
+		<div class="container" style="background-image: url('../img/background.png'); ">
 			<div class="row">
 				<div class="col-md-2 " >
 					<img src="../img/logobale.png" id="logohead" >
@@ -27,21 +27,24 @@
 				
 					<h1 style="text-shadow: 2px 2px 8px #FF0000;color: black;font-family: cursive;padding-left: 250px;padding-top: 20px;">EAM</h1>
 					<h2 class="h2">TRUNG TÂM PHÁT TRIỂN NGHỆ THUẬT EAM</h2>
-					
-					<ul class="nav col-md-3 offset-md-9">
-						<li class="">
-							<button class="btn btn-danger" data-toggle="modal" data-target="#formLogin" id="head-login">
-								Đăng Nhập
-							</button> 
-							<a href="" type="hide" id="Name"></a>
+				
+						<ul class="nav col-md-10 offset-2" >
+						    <li><h3 class="h2" style="font-family: vardana;">Ươm Mầm Tài Năng Việt</h3></li>
+							<li class="" style="margin-top: 30px;margin-left: 100px;">
+								<button class="btn btn-danger" data-toggle="modal">
+								 <i class="fa fa-user"></i>
+									Admin
+								</button>
 							</li>
-						<li class="nav-item">
-							<button class="btn btn-danger" data-toggle="modal" data-target="#formSignUp" id="head-signup">
-								Đăng ký
-							</button>
-						</li>
-						<li id="logout"></li> 
-					</ul>
+							<li class="nav-item" style="margin-left: 10px;margin-top: 30px;">
+							    <button class="btn btn-danger" data-toggle="modal" data-target="#formLogout" id="head-login">
+								Đăng Xuất
+								<i class="fa fa-sign-in"></i>
+								</button>
+							</li>
+							<li id="logout"></li> 
+						</ul>
+				    </div>
 				</div>						
 			</div>					
 		</div>				

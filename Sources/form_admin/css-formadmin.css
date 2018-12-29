@@ -1,6 +1,6 @@
 #header{
 	height: auto;
-	background-color: #F5DEB3;
+    background-color: #BEDF6E;
 }
 #logohead {
     width: 150px;
@@ -14,8 +14,8 @@
 .h2 {
     text-shadow: 2px 2px 8px #FF0000;
     color: black;
-    font-family: cursive;
 }
+
 input[type="text"] {
     width: 200px;
     box-sizing: border-box;
@@ -104,7 +104,7 @@ input[type="password"] {
 }
 
 #footer {
-    background-color: #F5DEB3;
+    background-color: #CCFF99;
     background-size: 100% 500px;
     background-repeat: no-repeat;
     padding-top: 80px;

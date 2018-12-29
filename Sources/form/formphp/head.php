@@ -23,37 +23,31 @@ session_start();
 	<div id="header" class="" style="background-color: #BEDF6E;">
 		<div class="container" style="background-image: url('../img/background.png'); ">
 			<div class="row">
-				<div class="col-md-3 " >
+				<div class="col-md-2 " >
 					<img src="../img/logobale.png" id="logo" style="width: 150px; height: auto;" >
 
 				</div>
-				<div class="col-md-9">											
-						<h2 class="" style="width: auto;">TRUNG TÂM PHÁT TRIỂN NGHỆ THUẬT EAM</h2>
-					<div class="row">
-						<div class="col-md-7">
-							<h3 class="text-danger text-center">Ươm mầm tài năng Việt</h3>
-						</div>
-						<div class="col-md-5  " style="margin-top: 100px;">
-							<ul>
-								<li ><button class="btn btn-danger" data-toggle="modal" data-target="#formLogin" id="head-login">
-									<i class="fa fa-sign-in"></i>
-									Đăng Nhập
-								</button> 
-								<a href="Index.php?page=User" type="hide" id="Name"></a>
-								</li>
-								<li >
-									<button class="btn btn-danger" data-toggle="modal" data-target="#formSignUp" id="head-signup">
-									<i class="fa fa-user"></i>
-									Đăng ký
-									</button>
-
-								</li>
-								<li id="logout"></li>
-
-
-							</ul>
-						</div>						
-					</div>					
+				<div class="col-md-10">
+				    
+					<h1 style="text-shadow: 2px 2px 8px #FF0000;color: black;font-family: cursive;padding-left: 250px;padding-top: 20px;">EAM</h1>
+					<h2 >TRUNG TÂM PHÁT TRIỂN NGHỆ THUẬT EAM</h2>
+					<ul class="nav col-md-10 offset-2">
+						<li><h3 style="text-shadow: 2px 2px 8px #FF0000;color: black;font-family: vardana;">Ươm Mầm Tài Năng Việt</h3></li>
+						<li style="margin-top: 30px;margin-left: 100px;">
+							<button class="btn btn-danger" data-toggle="modal" data-target="#formLogin" id="head-login">
+								<i class="fa fa-sign-in"></i>
+								Đăng Nhập
+							</button> 
+						<a href="Index.php?page=User" type="hide" id="Name"></a>
+						</li>
+						<li  style="margin-left: 10px;margin-top: 30px;">
+							<button class="btn btn-danger" data-toggle="modal" data-target="#formSignUp" id="head-signup">
+								<i class="fa fa-user"></i>
+								Đăng ký
+							</button>
+						</li>
+						<li id="logout"></li>
+					</ul>					
 				</div>				
 			</div>
 		</div>
