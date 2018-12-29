@@ -3,19 +3,19 @@
 			<?php 
 			$page=isset($_GET["page"])?$_GET["page"]:"";
 			if($page =='lecturer')
-				include "lecturer.php";
+				include "lecturer/lecturer.php";
 			if($page =='student')
-				include "student.php";
+				include "student/student.php";
 			if($page =='category')
-				include "category.php";
+				include "category/category.php";
 			if($page =='subject')
-				include "subject.php";
+				include "subject/subject.php";
 			if($page =='class')
-				include "class.php";
+				include "class/class.php";
 			if($page =='sign_up')
-				include "sign_up.php";
+				include "sign_up/sign_up.php";
 			if($page =='NhacCu')
-				include "NhacCu.php";
+				include "TongQuan.php";
 			
 			?>
 		</div>

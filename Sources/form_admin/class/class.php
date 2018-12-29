@@ -1,9 +1,3 @@
-
-  <script>
-    function xoadm() {
-      alert('Lớp đã được xóa!');
-    }
-  </script>
   <?php
    $servername = "localhost";
    $username = "root";
@@ -14,6 +8,35 @@
   if (!$connect) {
       die('kết nối không thành công ' . mysqli_connect_error());
   }
+    mysqli_set_charset($connect, 'UTF8');
+
+    $lecturerID = "";
+    $subjectID= "";
+    $startDay = "";
+    $finishDay = "";
+    //Lấy giá trị POST từ form vừa submit
+    if ($_SERVER["REQUEST_METHOD"] == "POST") { 
+      if(isset($_POST["lecturerID"])) { $name = $_POST['lecturerID']; }
+      if(isset($_POST["subjectID"])) { $Name= $_POST['subjectID']; }
+      if(isset($_POST["startDay"])) { $startDay = $_POST['startDay']; }
+      if(isset($_POST["finishDay"])) { $finishDay = $_POST['finishDay']; }
+      //Code xử lý, insert dữ liệu vào table
+      $sql = " INSERT INTO class (lecturerID, subjectID, startDay, finishDay, createDate, isActive)
+      VALUES ('$lecturerID','$subjectID','$startDay','$finishDay', NOW(),1)";
+
+      if ( (mysqli_query($connect, $sql)) ) {
+        echo "<script>";
+        echo "alert('Thêm Lớp Thành Công !');";  
+        echo "</script>";
+      } 
+      else {
+        echo "<script>";
+        echo "alert('Thêm Lớp Thất Bại !');";  
+        echo "</script>";
+      }
+  }
+
+  mysqli_close($connect);
   ?>
 
 <body style="background: #E6E6FA">
@@ -23,7 +46,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3 ">
-        <form title="THÊM Lớp">
+        <form title="THÊM Lớp" action="" method="post">
           <button type="button" class="button1 " data-toggle="modal" data-target="#exampleModalCenter">
             <font face="cursive"> ADD</font>
           </button>
@@ -44,38 +67,31 @@
                     <tr>
                       <td>Nhập Mã Giáo Viên</td>
                       <td>
-                        <input type="text" name="Name.." id="ten_hv">
+                        <input type="text" name="lecturerID" id="ten_lop">
                       </td>
                     </tr>
                     <tr>
                       <td>Nhập Mã Môn Học</td>
                       <td>
-                        <input type="text" name="Name.." id="ten_hv">
+                        <input type="text" name="subjectID" id="ten_mh">
                       </td>
                     </tr>
                     <tr>
                       <td> Ngày Bắt Đầu</td>
                       <td>
-                        <input type="text" name="Name.." id="ten_hv">
+                        <input type="text" name="startDay" id="ngaybd">
                       </td>
                     </tr>
                     <tr>
                       <td> Ngày Kết Thúc</td>
                       <td>
-                        <input type="text" name="Name.." id="ten_hv">
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Ngày Tạo</td>
-                      <td>
-                        <input type="text" name="Name.." id="ten_hv">
+                        <input type="text" name="finishDay" id="ngaykt">
                       </td>
                     </tr>
                   </table>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>
               </div>
             </div>
@@ -95,9 +111,9 @@
     <!---->
     <table class="table table-hover" >
       <thead style="background: #CCCC66;">
-        <td >STT</td>
-        <td >Mã Giáo Viên</td>
-        <td>Mã Môn Học</td>
+        <td hidden>ID</td>
+        <td > Giáo Viên</td>
+        <td> Môn Học</td>
         <td>NGày Bắt Đầu</td>
         <td>Ngày Kết Thúc</td>
         <td>Ngày Tạo</td>
@@ -114,20 +130,22 @@ if (!$connect) {
     die('kết nối không thành công ' . mysqli_connect_error());
 }
 
-$sql = "SELECT * FROM class";
+$sql = "SELECT `lecturer`.`name`,`subjects`.`Name`,`class`.`startDay`,`class`.`finishDay`,`class`.`createDate` 
+FROM `lecturer`,`subjects`,`class`
+WHERE `lecturer`.`ID`=`class`.`lecturerID` AND `subjects`.`ID`=`class`.`subjectID`";
 //kiểm tra
 if ($result = mysqli_query($connect, $sql)) {
     while ($row = mysqli_fetch_array($result)) {
   ?>
       <tbody>
-        <td>
+        <td hidden>
           <?php echo $row['ID'] ?>
         </td>
         <td>
-          <?php echo $row['lecturerID'] ?>
+          <?php echo $row['name'] ?>
         </td>
         <td>
-          <?php echo $row['subjectID'] ?>
+          <?php echo $row['Name'] ?>
         </td>
         <td>
           <?php echo $row['startDay'] ?>
@@ -139,64 +157,16 @@ if ($result = mysqli_query($connect, $sql)) {
           <?php echo $row['createDate'] ?>
         </td>
         <td>
-          <button type="button" title="SỬA THÔNG TIN DANH MỤC" class="buttonsmall" data-toggle="modal" data-target="#exampleModalCenter1">
-            <h5> SỬA</h5>
-          </button>
-          <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">Nhập Thông Tin Lớp </h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <!--nội dung plugin-->
-                  <table>
-                    <tr>
-                      <td>Nhập Mã Giáo Viên</td>
-                      <td>
-                        <input type="text" name="Name.." id="ten_hv">
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Nhập Mã Môn Học</td>
-                      <td>
-                        <input type="text" name="Name.." id="ten_hv">
-                      </td>
-                    </tr>
-                    <tr>
-                      <td> Ngày Bắt Đầu</td>
-                      <td>
-                        <input type="text" name="Name.." id="ten_hv">
-                      </td>
-                    </tr>
-                    <tr>
-                      <td> Ngày Kết Thúc</td>
-                      <td>
-                        <input type="text" name="Name.." id="ten_hv">
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Ngày Tạo</td>
-                      <td>
-                        <input type="text" name="Name.." id="ten_hv">
-                      </td>
-                    </tr>
-                  </table>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button type="button" title="XÓA DANH MỤC" class="buttonsmall" onclick="xoadm();">
-            <h5>XÓA</h5>
-          </button>
+          <a href="class/edit.php?ID=<?php echo $row['ID']; ?>" >
+            <button type="button" title="SỬA THÔNG TIN DANH MỤC" class="buttonsmall" data-toggle="modal" data-target="#exampleModalCenter1">
+              <h5> SỬA</h5>
+            </button>
+          </a>
+          <a href="class/delete.php?ID=<?php echo $row['ID']; ?>" class="delete">
+            <button type="button" title="XÓA DANH MỤC" class="buttonsmall" >
+              <h5>XÓA</h5>
+            </button>
+          </a>
         </td>
       </tbody>
       <?php

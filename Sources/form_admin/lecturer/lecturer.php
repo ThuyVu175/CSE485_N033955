@@ -1,12 +1,4 @@
 
-
-
-
-  <script>
-    function xoahv() {
-      alert('Học viên đã được xóa!');
-    }
-  </script>
 <?php
     $servername = "localhost";
     $username = "root";
@@ -141,12 +133,13 @@ if (!$connect) {
     die('kết nối không thành công ' . mysqli_connect_error());
 }
 
-$sql = "SELECT * FROM lecturer";
+$sql = "SELECT * FROM lecturer WHERE `lecturer`.`isActive`=1";
 //kiểm tra
 if ($result = mysqli_query($connect, $sql)) {
     while ($row = mysqli_fetch_array($result)) {
   ?>
     <tbody>
+       <td hidden>ID: <?php echo $row['ID'] ?></td>
        <td><img src="<?php echo $row['image'] ?>" class="img"></td>
        <td width="280px">
         <p> Tên Giảng Viên: <?php echo $row['name'] ?> </p>
@@ -157,60 +150,16 @@ if ($result = mysqli_query($connect, $sql)) {
        <td width="400px"><?php echo $row['description'] ?></td>
        <td><?php echo $row['createDate'] ?></td>
        <td width="200px">
+       <a href="lecturer/edit.php?ID=<?php echo $row['ID']; ?>" >
         <button type="button" title="SỬA THÔNG TIN GIẢNG VIÊN" class="buttonsmall" data-toggle="modal" data-target="#exampleModalCenter1">
           <h5> SỬA</h5>
         </button>
-        <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Nhập Thông  Tin Giảng Viên </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <!--nội dung plugin-->
-                <table>
-                  <tr>
-                    <td>Tên Giảng Viên</td>
-                    <td>
-                      <input type="text" name="Name.." id="ten_gv">
-                    </td>
-                  </tr>
-              
-                  <tr>
-                    <td>Năm Sinh</td>
-                    <td>
-                      <input type="text" name="Date.." id="namsinh_gv">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Số Điện Thoại</td>
-                    <td>
-                      <input type="text" name="phoneNumber.." id="sdt_gv">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Email</td>
-                    <td>
-                      <input type="text" name="email.." id="email_gv">
-                    </td>
-                  </tr>
-                </table>
-                <label for="trinhdohocvan"> Mô Tả</label>
-                <textarea class="form-control" id="trinhdohocvan" rows="3"></textarea>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <button type="button" title="XÓA HỌC VIÊN" class="buttonsmall" onclick="xoahv();">
+        </a>
+        <a href="lecturer/delete.php?ID=<?php echo $row['ID']; ?>" class="delete">
+        <button type="button" title="XÓA HỌC VIÊN" class="buttonsmall">
           <h5>XÓA</h5>
         </button>
+        </a>
        </td>
        </tbody>
  <?php
