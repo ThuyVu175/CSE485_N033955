@@ -21,6 +21,8 @@
 				include "Menu/lecturers.php";
 			if($page =='LienHe')
 				include "Menu/LienHe.php";
+			if($page =='User')
+				include "User.php";
 
 			
 			?>

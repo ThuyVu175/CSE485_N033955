@@ -24,22 +24,22 @@ session_start();
 		<div class="container" style="background-image: url('../img/background.png'); ">
 			<div class="row">
 				<div class="col-md-3 " >
-					<img src="../img/logobale.png" id="logo" >
+					<img src="../img/logobale.png" id="logo" style="width: 150px; height: auto;" >
 
 				</div>
 				<div class="col-md-9">											
 						<h2 class="" style="width: auto;">TRUNG TÂM PHÁT TRIỂN NGHỆ THUẬT EAM</h2>
-					<div class="row mt-4">
+					<div class="row">
 						<div class="col-md-7">
 							<h3 class="text-danger text-center">Ươm mầm tài năng Việt</h3>
 						</div>
-						<div class="col-md-5 ">
-							<ul class="pt-1">
+						<div class="col-md-5  " style="margin-top: 100px;">
+							<ul>
 								<li ><button class="btn btn-danger" data-toggle="modal" data-target="#formLogin" id="head-login">
 									<i class="fa fa-sign-in"></i>
 									Đăng Nhập
 								</button> 
-								<a href="User.php?username=" type="hide" id="Name"></a>
+								<a href="Index.php?page=User" type="hide" id="Name"></a>
 								</li>
 								<li >
 									<button class="btn btn-danger" data-toggle="modal" data-target="#formSignUp" id="head-signup">
