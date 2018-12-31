@@ -28,31 +28,56 @@ session_start();
 
 				</div>
 				<div class="col-md-10">
-				    
-					<h1 style="text-shadow: 2px 2px 8px #FF0000;color: black;font-family: cursive;padding-left: 250px;padding-top: 20px;">EAM</h1>
-					<h2 >TRUNG TÂM PHÁT TRIỂN NGHỆ THUẬT EAM</h2>
-					<ul class="nav col-md-10 offset-2">
-						<li><h3 style="text-shadow: 2px 2px 8px #FF0000;color: black;font-family: vardana;">Ươm Mầm Tài Năng Việt</h3></li>
-						<li style="margin-top: 30px;margin-left: 100px;">
-							<button class="btn btn-danger" data-toggle="modal" data-target="#formLogin" id="head-login">
-								<i class="fa fa-sign-in"></i>
-								Đăng Nhập
-							</button> 
-						<a href="Index.php?page=User" type="hide" id="Name"></a>
-						</li>
-						<li  style="margin-left: 10px;margin-top: 30px;">
-							<button class="btn btn-danger" data-toggle="modal" data-target="#formSignUp" id="head-signup">
-								<i class="fa fa-user"></i>
-								Đăng ký
-							</button>
-						</li>
-						<li id="logout"></li>
-					</ul>					
+					<div class="row">
+						<h1 class="offset-md-1" style="text-shadow: 2px 2px 8px #FF0000;color: black;font-family: cursive;padding-left: 250px;padding-top: 20px;">EAM</h1>
+					</div>
+					<div class="row">
+						<h2 class="offset-md-1" >TRUNG TÂM PHÁT TRIỂN NGHỆ THUẬT EAM</h2>
+					</div>
+					
+					<div class="row">
+						
+						<h3 style="text-shadow: 2px 2px 8px #FF0000;color: black;font-family: WildWest;padding-left: 250px;">Ươm mầm tài năng  Việt</h3>
+					</div>
+					<div class="row">
+						<ul class="offset-md-8 ">	
+							<?php if (isset($_SESSION["user"]))
+							{
+								?>							
+								<li>
+									<a href="Index.php?page=User&username=<?php echo $_SESSION["user"] ?>" type="hide" id="Name" class="text-light font-weight-bold ">
+										Xin chào <?php echo $_SESSION["user"] ?>
+									</a>
+								</li>
+								<li id="logout">
+									<button id='logout' onclick='Logout()' class='btn btn-danger'> 
+									Đăng xuất
+									</button>
+								</li>
+							<?php } else{ ?>			
+								<li class="" >
+									<button class="btn btn-danger" data-toggle="modal" data-target="#formLogin" id="head-login">
+										<i class="fa fa-sign-in"></i>
+										Đăng Nhập
+									</button>
+								</li>
+								<li class="" >
+									<button class="btn btn-danger" data-toggle="modal" data-target="#formSignUp" id="head-signup">
+										<i class="fa fa-user"></i>
+										Đăng ký
+									</button>
+								</li>
+							<?php } ?>
+						</ul>
+					</div>
+
 				</div>				
 			</div>
 		</div>
 	</div>	
 
+	
+	
 </body>
 </html>
 
@@ -67,7 +92,7 @@ session_start();
 				</button>
 			</div>
 			<div class="modal-body">
-				<form action="#" method="POST" class="p-4">
+				<form action="Xuly/login.php" method="POST" class="p-4">
 					<input placeholder="Tên Đăng Nhập" class="form-control" name="username" type="text" id="username" required>
 
 					<input  placeholder="Mật Khẩu" name="password" class="form-control mt-3" type="password" id="password" required>
@@ -78,15 +103,16 @@ session_start();
 						<a class="col-md-6 text-right" href="#">Forgot Password?</a>						
 					</div>
 
-				</form>
-			</div>
-			<div class="modal-footer">
-				<div class="row mr-2">	
-					<button class="btn btn-success col-md- mr-2" onclick="Login()">Đăng nhập</button>
 
-					<button type="button" class="btn btn-secondary col-md-4" >Close</button>
 				</div>
-			</div>
+				<div class="modal-footer">
+					<div class="row mr-2">	
+						<input type="submit" name="" class="btn btn-success col-md- mr-2" value="Đăng nhập">
+
+						<button type="button" class="btn btn-secondary col-md-4" >Close</button>
+					</div>
+				</div>
+			</form>
 		</div>
 	</div>
 </div>
@@ -182,40 +208,46 @@ session_start();
 	</div>
 </div>
 <script type="text/javascript">
-	function Login(){
-		var username=$('#username').val();
-		var password= $('#password').val();
+	// function Login(){
+	// 	var username=$('#username').val();
+	// 	var password= $('#password').val();
 
-		$.ajax({
-			url: "Xuly/login.php",
-			type: 'post',
-			
-			data: {username: username, password: password},
-			success: function(result){
-				if(result==2){
-					$('#head-signup').hide();
-					$('#logout').html("<button id='logout' onclick='Logout()' class='btn btn-danger';> Đăng xuất</button>");
-					$('#head-login').hide();
-					$('#formLogin').modal('hide');
-					$('#Name').html("Xin chào "+username+"!");
+	// 	$.ajax({
+	// 		url: "Xuly/login.php",
+	// 		type: 'post',
 
-				}						
-				else if(result==0){
-					$('#validate').html("Sai tài khoản hoặc mật khẩu");
-					$('#formlogin').modal('show');
-				}
-				else{
-					window.location.href='../form_admin/admin.php';
-				}
-			}
-		});
-	}
+	// 		data: {username: username, password: password},
+	// 		success: function(result){
+	// 			if(result==2){
+	// 				$('#head-signup').hide();
+	// 				$('#logout').html("<button id='logout' onclick='Logout()' class='btn btn-danger';> Đăng xuất</button>");
+	// 				$('#head-login').hide();
+	// 				$('#formLogin').modal('hide');
+	// 				$('#Name').html("Xin chào "+username+"!");
+	// 				$_SESSION["user"] = username;
+	// 			}						
+	// 			else if(result==0){
+	// 				$('#validate').html("Sai tài khoản hoặc mật khẩu");
+	// 				$('#formlogin').modal('show');
+	// 			}
+	// 			else{
+	// 				window.location.href='../form_admin/admin.php';
+	// 				$_SESSION["user"]= username;
+	// 			}
+	// 		}
+	// 	});
+	// }
 
 	function Logout(){
 		$('#head-login').show();
 		$('#head-signup').show();
 		$('#logout').hide();
 		$('#Name').hide();
+		window.location.href="Index.php";
+		<?php 
+			unset($_SESSION["user"]);
+			
+		 ?>
 	}
 
 	function SignUp(){

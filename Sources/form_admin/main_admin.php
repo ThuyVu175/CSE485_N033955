@@ -2,6 +2,8 @@
 		<div class="row">
 			<?php 
 			$page=isset($_GET["page"])?$_GET["page"]:"";
+			if($page =='')
+				include "category/category.php";
 			if($page =='lecturer')
 				include "lecturer/lecturer.php";
 			if($page =='student')

@@ -1,7 +1,9 @@
 
 <?php 
+
 	include('formphp/head.php');
 	include('formphp/menu.php');
+
  ?>
 
 
@@ -40,8 +42,9 @@
          </div>
        </div>
         <div class="row">
-         <button class="col-md-3 btn btn-warning btn btn-warning">
-           <i class="fa fa-plus "></i>
+
+         <button id="signUp" class="col-md-3 btn btn-warning btn btn-warning" onclick="signUp(<?php echo $row['ID']  ?>)">
+           <i id="iconSignUp" class="fa fa-plus "></i>
            Đăng ký tư vấn
          </button>
        </div>
@@ -83,3 +86,22 @@
 <?php 
 	include('formphp/footer.php');
  ?>
+
+<script type="text/javascript">
+  function signUp() {
+    // body...
+    <?php
+      if (isset($_SESSION["user"]))
+      {
+    ?>              
+      alert("Bạn đã đăng kí thành công!");
+      $("#signUp").html("Đã đăng kí");
+
+    <?php } else {
+      # code...
+    ?>
+    alert("Bạn phải đăng nhập!");
+  <?php } ?>
+    }
+
+</script>
