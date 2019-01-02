@@ -2,12 +2,13 @@
 		<div class="row">
 			<?php 
 			$page=isset($_GET["page"])?$_GET["page"]:"";
+
 			if($page =='account')
 			    include "account/account.php";
-			if($page =='lecturer')
-				include "lecturer/lecturer.php";
 			if($page =='student')
 				include "student/student.php";
+			if($page =='lecturer')
+				include "lecturer/lecturer.php";
 			if($page =='category')
 				include "category/category.php";
 			if($page =='subject')
