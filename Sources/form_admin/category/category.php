@@ -18,7 +18,7 @@
     //Lấy giá trị POST từ form vừa submit
     if ($_SERVER["REQUEST_METHOD"] == "POST") 
     { 
-      if(isset($_POST["Name"])) { $Name = $_POST['Name']; }
+      if(isset($_POST["NameAdd"])) { $Name = $_POST['NameAdd']; }
       //Code xử lý, insert dữ liệu vào table
       $sql = "INSERT INTO category (Name, createDate, isActive)
       VALUES ('$Name', NOW(),1)";
@@ -38,26 +38,6 @@
 //Đóng database
 mysqli_close($connect);
   ?>
-  <?php
-  $NameEdit = "";
-  $ID = "";
-  //Lấy giá trị POST từ form vừa submit
-  if ($_SERVER["REQUEST_METHOD"] == "POST") 
-  { 
-    if(isset($_POST["NameEdit"])) { $NameEdit = $_POST['NameEdit']; }
-    //Code xử lý, insert dữ liệu vào table
-    $sql4 = "UPDATE `category` SET `Name` = '$NameEdit' WHERE `category`.`ID` = '$ID'";
-    if (mysqli_query($connect, $sql4) ) {
-      echo "<script>";
-      echo "alert('Sửa Danh Mục Thành Công !');";  
-      echo "</script>";
-    } else {
-      echo "<script>";
-        echo "alert('Tên Danh Mục Đã Tồn Tại !');";
-        echo "</script>";
-    }
-  }
-?>
 
 <body style="background: #E6E6FA">
   
@@ -85,7 +65,7 @@ mysqli_close($connect);
                   <table>
                     <tr>
                         <th>Tiêu đề:</th>
-                        <td><input type="text" name="Name" value=""></td>
+                        <td><input type="text" name="NameAdd" value=""></td>
                     </tr>
                   </table>
                 </div>
@@ -98,10 +78,62 @@ mysqli_close($connect);
         </form>
       </div>
       <div class="col-md-5 offset-md-4" style="padding-top: 50px;">
-        <button type="submit" class="buttonsearch">
-           <img src="../img/search.png" style="width: 34px;height: auto; ">
-        </button>
-        <input type="text" name="search" placeholder="Tìm kiếm ...">
+            <form action="" method="get">
+                Search: <input type="text" name="search" />
+                <input type="submit" name="btnsearch" value="search" />
+            </form>
+        <?php
+        /* Tìm kiếm
+        // Nếu người dùng submit form thì thực hiện
+        if (isset($_REQUEST['btnsearch'])) 
+        {
+            // Gán hàm addslashes để chống sql injection
+            $search = addslashes($_GET['search']);
+ 
+            // Nếu $search rỗng thì báo lỗi, tức là người dùng chưa nhập liệu mà đã nhấn submit.
+            if (empty($search)) {
+                echo "Yeu cau nhap du lieu vao o trong";
+            } 
+            else
+            {
+                // Dùng câu lênh like trong sql và sứ dụng toán tử % của php để tìm kiếm dữ liệu chính xác hơn.
+                $query = "SELECT * FROM `category` WHERE Name LIKE '$search'";
+ 
+                // Kết nối sql
+                mysql_connect("localhost", "root", "", "qlkhoahocttnk");
+ 
+                // Thực thi câu truy vấn
+                $sqlsearch = mysqli_query($query);
+ 
+                // Đếm số đong trả về trong sql.
+                $num = mysqli_num_rows($sqlsearch);
+ 
+                // Nếu có kết quả thì hiển thị, ngược lại thì thông báo không tìm thấy kết quả
+                if ($num > 0 && $search != "") 
+                {
+                    // Dùng $num để đếm số dòng trả về.
+                    echo "$num ket qua tra ve voi tu khoa <b>$search</b>";
+ 
+                    // Vòng lặp while & mysql_fetch_assoc dùng để lấy toàn bộ dữ liệu có trong table và trả về dữ liệu ở dạng array.
+                    echo '<table border="1" cellspacing="0" cellpadding="10">';
+                    while ($kq = mysqli_fetch_assoc($sqlsearch)) {
+                        echo '<tr>';
+                            echo "<td>{$kq['user_id']}</td>";
+                            echo "<td>{$kq['username']}</td>";
+                            echo "<td>{$kq['password']}</td>";
+                            echo "<td>{$kq['email']}</td>";
+                            echo "<td>{$kq['address']}</td>";
+                        echo '</tr>';
+                    }
+                    echo '</table>';
+                } 
+                else {
+                    echo "Khong tim thay ket qua!";
+                }
+            }
+        }
+        */
+        ?>   
       </div>
     </div>
     <br><br>
@@ -123,9 +155,9 @@ mysqli_close($connect);
             die('kết nối không thành công ' . mysqli_connect_error());
         }
 
-        $sql2 = "SELECT * FROM `category` WHERE `category`.`isActive`=1";
+        $sqlshow = "SELECT * FROM `category` WHERE `category`.`isActive`=1";
         //kiểm tra
-        if ($result = mysqli_query($connect, $sql2)) {
+        if ($result = mysqli_query($connect, $sqlshow)) {
             while ($row = mysqli_fetch_array($result)) {
       ?>
       <tbody>
@@ -141,7 +173,7 @@ mysqli_close($connect);
           </td>
           <td>
             <a href="category/edit.php?ID=<?php echo $row['ID']; ?>" >
-              <button type="button" title="XÓA DANH MỤC" class="buttonsmall">
+              <button type="button" title="SỬA THÔNG TIN DANH MỤC" class="buttonsmall">
               <h5>SỬA</h5>
               </button>
             </a>            

@@ -12,11 +12,11 @@ $idDM=$_GET['ID'] ;
 $sql3 = "UPDATE category SET isActive=0 WHERE category.ID = '$idDM'";
 if (mysqli_query($connect, $sql3)) {
     echo "<script language='javascript'>alert('Xóa Danh Mục Thành Công');";
-    echo "location.href='admin.php?page=category';</script>";
+    echo "location.href='http://localhost/CongNgheWeb/Sources/form_admin/admin.php?page=category';</script>";
 }
 else {
     echo "<script language='javascript'>alert('Xóa Danh Mục Thất Bại');";
-    echo "location.href='admin.php?page=category';</script>";
+    echo "location.href='http://localhost/CongNgheWeb/Sources/form_admin/admin.php?page=category';</script>";
   }
 // die($sql);
 ?>

@@ -17,6 +17,7 @@
   $phoneNumber = "";
   $email = "";
   $sexual = "";
+  $accountID= "" ;
 
   //Lấy giá trị POST từ form vừa submit
   if ($_SERVER["REQUEST_METHOD"] == "POST") { 
@@ -28,9 +29,8 @@
     if(isset($_POST["phoneNumber"])) { $phoneNumber = $_POST['phoneNumber']; }
     if(isset($_POST["email"])) { $email = $_POST['email']; }
     if(isset($_POST["sexual"])) { $sexual = $_POST['sexual']; }
-    //Code xử lý, insert dữ liệu vào table
     $sql = "INSERT INTO student (accountID,name,paid,owed,age,phoneNumber,email,sexual, createDate, isActive)
-    VALUES ('$accountID', '$name','$paid','$owed','$age','$phoneNumber','$email','$sexual', NOW(),1)";
+    VALUES ($accountID, '$name',$paid,$owed,$age,'$phoneNumber','$email','$sexual', NOW(),1)";
     if ( (mysqli_query($connect, $sql)) ) {
       echo "<script>";
       echo "alert('Thêm Học Viên Thành Công !');";  
@@ -40,7 +40,7 @@
     echo "<script>";
     echo "alert('Thêm Học Viên Thất Bại !');";  
     echo "</script>";
-  }
+  } 
 }
 //Đóng database
 mysqli_close($connect);
@@ -185,12 +185,15 @@ mysqli_close($connect);
       <table class="table table-hover" bgcolor="">
         <thead style="background: #CCCC66;">
           <td hidden>ID</td>
+          <td width="50px">ID Tài Khoản</td>
           <td>Tên Học Viên</td>
           <td>Tuổi</td>
           <td>Số Điện Thoại</td>
           <td>Email</td>
+          <td>Học Phí Đã Nộp</td>
+          <td>Học Phí Còn Nợ</td>
           <td>Ngày Tạo</td>
-          <td>Chức Năng</td>
+          <td width="100px">Chức Năng</td>
         </thead>
         <tbody>
           <?php
@@ -203,26 +206,29 @@ mysqli_close($connect);
                 die('kết nối không thành công ' . mysqli_connect_error());
             }
 
-            $sql = "SELECT * FROM student";
+            $sql = "SELECT * FROM student WHERE student.isActive = 1";
             //kiểm tra
             if ($result = mysqli_query($connect, $sql)) {
                 while ($row = mysqli_fetch_array($result)) {
                   ?>
           <tr>
             <td hidden><?php echo $row['ID'] ?></td>
+            <td><?php echo $row['accountID'] ?></td>
             <td><?php echo $row['name'] ?></td>
             <td><?php echo $row['age'] ?></td>
             <td><?php echo $row['phoneNumber'] ?></td>
             <td><?php echo $row['email'] ?></td>
+            <td><?php echo $row['paid'] ?></td>
+            <td><?php echo $row['owed'] ?></td>
             <td><?php echo $row['createDate'] ?></td>
             <td>
               <a href="student/edit.php?ID=<?php echo $row['ID']; ?>" >
-                <button type="button" title="SỬA THÔNG TIN HỌC VIÊN" class="buttonsmall" data-toggle="modal" data-target="#editStudent">
+                <button type="button" title="SỬA THÔNG TIN HỌC VIÊN" class="buttonsmall">
                   <h5> SỬA</h5>
                 </button>
               </a>
               <a href="student/delete.php?ID=<?php echo $row['ID']; ?>" class="delete">
-                <button type="button" title="XÓA HỌC VIÊN" class="buttonsmall" onclick="xoahv();">
+                <button type="button" title="XÓA HỌC VIÊN" class="buttonsmall">
                   <h5>XÓA</h5>
                 </button>
               </a>
