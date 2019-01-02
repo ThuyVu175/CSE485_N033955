@@ -14,7 +14,7 @@
     $age = "";
     $email = "";
     $phoneNumber = "";
-    $description = "";
+    $generalDescription = "";
     $sexual = "";
     $image = "";
     //Lấy giá trị POST từ form vừa submit
@@ -23,12 +23,12 @@
       if(isset($_POST["age"])) { $age = $_POST['age']; }
       if(isset($_POST["email"])) { $email = $_POST['email']; }
       if(isset($_POST["phoneNumber"])) { $phoneNumber = $_POST['phoneNumber']; }
-      if(isset($_POST["description"])) { $description = $_POST['description']; }
+      if(isset($_POST["generalDescription"])) { $description = $_POST['generalDescription']; }
       if(isset($_POST["sexual"])) { $sexual = $_POST['sexual']; }
       if(isset($_POST["image"])) { $image = $_POST['image']; }
       //Code xử lý, insert dữ liệu vào table
-      $sql = "INSERT INTO lecturer (name,age,email,phoneNumber,description,sexual,image, createDate, isActive)
-      VALUES ('$name','$age','$email','$phoneNumber','$description','$sexual','$image', NOW(),1)";
+      $sql = "INSERT INTO lecturer (name,age,email,phoneNumber,generalDescription,sexual,image, createDate, isActive)
+      VALUES ('$name','$age','$email','$phoneNumber','$generalDescription','$sexual','$image', NOW(),1)";
       if ( (mysqli_query($connect, $sql)) ) {
         echo "<script>";
         echo "alert('Thêm Giảng Viên Thành Công !');";  
@@ -147,7 +147,7 @@ if ($result = mysqli_query($connect, $sql)) {
           <p>SĐT: <?php echo $row['phoneNumber'] ?></p>
           <p>Email: <?php echo $row['email'] ?></p>
         </td>
-       <td width="400px"><?php echo $row['description'] ?></td>
+       <td width="400px"><p>Giới thiệu chung: <br><br> <?php echo $row['generalDescription'] ?></p></td>
        <td><?php echo $row['createDate'] ?></td>
        <td width="200px">
        <a href="lecturer/edit.php?ID=<?php echo $row['ID']; ?>" >
