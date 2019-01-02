@@ -46,8 +46,8 @@
             if (!$connect) {
                 die('kết nối không thành công ' . mysqli_connect_error());
             }
-            $sql = "SELECT `account`.`accountName`,`subjects`.`Name`,`sign_up`.`createdDate` FROM `account`,`subjects`,`sign_up`
-             WHERE `account`.`ID`=`sign_up`.`accountID` AND `subjects`.`ID`=`sign_up`.`subjectID`";
+            $sql = "SELECT `account`.`accountName`,`subjects`.`Name`,`sign_up`.`createDate` FROM `account`,`subjects`,`sign_up`
+             WHERE `account`.`ID`=`sign_up`.`accountID` AND `subjects`.`ID`=`sign_up`.`subjectID` AND `sign_up`.`createDate` AND `sign_up`.`isActive`=1   ";
             //kiểm tra
             if ($result = mysqli_query($connect, $sql)) {
                 while ($row = mysqli_fetch_array($result)) {
@@ -55,7 +55,7 @@
           <tr>
             <td><?php echo $row['accountName'] ?></td>
             <td><?php echo $row['Name'] ?></td>
-            <td><?php echo $row['createdDate'] ?></td>
+            <td><?php echo $row['createDate'] ?></td>
             <td>
             <button type="button" title="SỬA THÔNG TIN HỌC VIÊN" class="buttonsmall" data-toggle="modal" data-target="#editStudent">
                 <h5> SỬA</h5>
