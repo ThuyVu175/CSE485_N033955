@@ -140,9 +140,9 @@ mysqli_close($connect);
     <!---->
     <table class="table table-hover " >
       <thead style="background: #CCCC66;">
-        <td hidden>ID</td>
-        <td  WIDTH= "400px">Tên Danh Mục</td>
-        <td WIDTH= "500px">Ngày Tạo</td>
+        <td >ID Danh Mục</td>
+        <td  WIDTH= "300px">Tên Danh Mục</td>
+        <td WIDTH= "400px">Ngày Tạo</td>
         <td>Chức Năng</td>
       </thead>
       <?php
@@ -162,7 +162,7 @@ mysqli_close($connect);
       ?>
       <tbody>
         <tr>
-          <td hidden>
+          <td >
             <?php echo $row['ID'] ?>
           </td>
           <td>
@@ -177,7 +177,7 @@ mysqli_close($connect);
               <h5>SỬA</h5>
               </button>
             </a>            
-            <a href="category/delete.php?ID=<?php echo $row['ID']; ?>" class="delete">
+            <a href="category/delete.php?ID=<?php echo $row['ID']; ?>">
               <button type="button" title="XÓA DANH MỤC" class="buttonsmall">
               <h5>XÓA</h5>
               </button>

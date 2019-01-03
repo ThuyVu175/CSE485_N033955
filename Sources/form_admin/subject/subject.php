@@ -1,8 +1,3 @@
-<script>
-    function xoamh() {
-      alert('Môn học đã được xóa!');
-    }
-  </script>
   <?php
    $servername = "localhost";
    $username = "root";
@@ -13,6 +8,29 @@
   if (!$connect) {
       die('kết nối không thành công ' . mysqli_connect_error());
   }
+    //Lấy giá trị POST từ form vừa submit
+    if ($_SERVER["REQUEST_METHOD"] == "POST") { 
+      if(isset($_POST["Name"])) { $Name = $_POST['Name']; }
+      if(isset($_POST["categoryID"])) { $categoryID = $_POST['categoryID']; }
+      if(isset($_POST["description"])) { $description = $_POST['description']; }
+      if(isset($_POST["image"])) { $image = $_POST['image']; }
+      if(isset($_POST["price"])) { $price = $_POST['price']; }
+      $sql = "INSERT INTO subjects (Name,categoryID,description,image,price, createDate, isActive)
+      VALUES ( '$Name',$categoryID,'$description','$image','$price', NOW(),1)";
+      if ( (mysqli_query($connect, $sql)) ) {
+        echo "<script>";
+        echo "alert('Thêm Môn Học Thành Công !');";  
+        echo "</script>";
+      } 
+      else {      
+      echo "<script>";
+      echo "alert('Thêm Môn Học Thất Bại !');";  
+      echo "</script>";
+    } 
+  }
+  //Đóng database
+  mysqli_close($connect);
+    ?>
   ?>
 
 <body style="background: #E6E6FA">
@@ -22,12 +40,12 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3 ">
-        <form title="THÊM Môn Học">
-          <button type="button" class="button1 " data-toggle="modal" data-target="#exampleModalCenter">
+        <form title="THÊM MÔN HỌC" action="" method="post">
+          <button type="button" class="button1 " data-toggle="modal" data-target="#AddMonHoc">
             <font face="cursive"> ADD</font>
           </button>
           <!--modal-->
-          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+          <div class="modal fade" id="AddMonHoc" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content" style="background: #E6E6FA;">
@@ -41,30 +59,35 @@
                   <!--nội dung plugin-->
                   <table>
                     <tr>
-                      <td>Nhập Tên Môn Học</td>
+                      <td> Tên Môn Học</td>
                       <td>
-                        <input type="text" name="Name.." id="ten_mh">
+                        <input type="text" name="Name">
                       </td>
                     </tr>
                     <tr>
-                      <td>Nhập Mã Danh Mục</td>
+                      <td> Mã Danh Mục</td>
                       <td>
-                        <input type="text" name="Mã.." id="ma_dm">
+                        <input type="text" name="categoryID" >
                       </td>
                     </tr>
                     <tr>
-                      <td>Nhập Chi Phí Môn Học</td>
+                      <td>Image ( URL) </td>
                       <td>
-                        <input type="text" name="Chi Phí.." id="chiphi_mh">
+                        <input type="text" name="image" >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td> Chi Phí Môn Học</td>
+                      <td>
+                        <input type="text" name="price" >
                       </td>
                     </tr>
                   </table>
                   <label for="trinhdohocvan"> Mô Tả</label>
-                  <textarea class="form-control" id="mota_gv" rows="3"></textarea>
+                  <textarea class="form-control" name="description" rows="3"></textarea>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+                  <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>
               </div>
             </div>
@@ -128,55 +151,16 @@ if ($result = mysqli_query($connect, $sql)) {
           <?php echo $row['createDate'] ?>
         </td>
         <td>
-          <button type="button" title="SỬA THÔNG TIN MÔN HỌC" class="buttonsmall" data-toggle="modal" data-target="#exampleModalCenter1">
-            <h5> SỬA</h5>
-          </button>
-          <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">Nhập Thông Môn Học </h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <!--nội dung plugin-->
-                  <table>
-                    <tr>
-                      <td>Nhập Tên Môn Học</td>
-                      <td>
-                        <input type="text" name="Name.." id="ten_gv">
-                      </td>
-                    </tr>
-                    </tr>
-                    <tr>
-                      <td>Nhập Mã Danh Mục</td>
-                      <td>
-                        <input type="text" name="Mã.." id="ma_dm">
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Nhập Chi Phí Môn Học</td>
-                      <td>
-                        <input type="text" name="Chi Phí.." id="chiphi_mh">
-                      </td>
-                    </tr>
-                  </table>
-                  <label for="trinhdohocvan"> Mô Tả</label>
-                  <textarea class="form-control" id="mota_gv" rows="3"></textarea>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button type="button" title="XÓA DANH MỤC" class="buttonsmall" onclick="xoamh();">
-            <h5>XÓA</h5>
-          </button>
+          <a href="subject/edit.php?ID=<?php echo $row['ID']; ?>" >
+            <button type="button" title="SỬA THÔNG TIN MÔN HỌC" class="buttonsmall">
+              <h5> SỬA</h5>
+            </button>
+          </a>
+          <a href="subject/delete.php?ID=<?php echo $row['ID']; ?>">
+            <button type="button" title="XÓA MÔN HỌC" class="buttonsmall" >
+              <h5>XÓA</h5>
+            </button>
+          </a>
         </td>
       </tbody>
       <?php

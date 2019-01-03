@@ -14,6 +14,7 @@
     $age = "";
     $email = "";
     $phoneNumber = "";
+    $description = "";
     $generalDescription = "";
     $sexual = "";
     $image = "";
@@ -23,12 +24,13 @@
       if(isset($_POST["age"])) { $age = $_POST['age']; }
       if(isset($_POST["email"])) { $email = $_POST['email']; }
       if(isset($_POST["phoneNumber"])) { $phoneNumber = $_POST['phoneNumber']; }
-      if(isset($_POST["generalDescription"])) { $description = $_POST['generalDescription']; }
+      if(isset($_POST["description"])) { $description = $_POST['description']; }
+      if(isset($_POST["generalDescription"])) { $generalDescription = $_POST['generalDescription']; }
       if(isset($_POST["sexual"])) { $sexual = $_POST['sexual']; }
       if(isset($_POST["image"])) { $image = $_POST['image']; }
       //Code xử lý, insert dữ liệu vào table
-      $sql = "INSERT INTO lecturer (name,age,email,phoneNumber,generalDescription,sexual,image, createDate, isActive)
-      VALUES ('$name','$age','$email','$phoneNumber','$generalDescription','$sexual','$image', NOW(),1)";
+      $sql = "INSERT INTO lecturer (name,age,email,phoneNumber,description, generalDescription,sexual,image, createDate, isActive)
+      VALUES ('$name','$age','$email','$phoneNumber','$description','$generalDescription','$sexual','$image', NOW(),1)";
       if ( (mysqli_query($connect, $sql)) ) {
         echo "<script>";
         echo "alert('Thêm Giảng Viên Thành Công !');";  
@@ -65,43 +67,46 @@ mysqli_close($connect);
                     <tr>
                       <td>Tên Giảng Viên</td>
                       <td>
-                        <input type="text" name="name" id="ten_gv">
+                        <input type="text" name="name" >
                       </td>
                     </tr>
 
                     <tr>
                       <td>Tuổi</td>
                       <td>
-                        <input type="text" name="age" id="tuoi_gv">
+                        <input type="text" name="age" >
                       </td>
                     </tr>
                     <tr>
                       <td>Số Điện Thoại</td>
                       <td>
-                        <input type="text" name="phoneNumber" id="sodienthoai_gv">
+                        <input type="text" name="phoneNumber" >
                       </td>
                     </tr>
                     <tr>
                       <td>Email</td>
                       <td>
-                        <input type="text" name="email" id="email_gv">
+                        <input type="text" name="email">
                       </td>
                     </tr>  
                     <tr>
                       <td>Sexual</td>
                       <td>
-                        <input type="text" name="sexual" id="sex_gv">
+                        <input type="text" name="sexual" >
                       </td>
                     </tr> 
                     <tr>
                       <td>Image(URL)</td>
                       <td>
-                        <input type="text" name="image" id="image_gv">
+                        <input type="text" name="image" >
                       </td>
-                    </tr>                 
+                    </tr>     
+                  </table>
+                  <label for="trinhdohocvan"> Giới Thiệu Chung</label>
+                  <textarea class="form-control" name="description" rows="2"></textarea>            
                   </table>
                     <label for="trinhdohocvan"> Mô Tả</label>
-                  <textarea class="form-control" name="description" id="mota_gv" rows="3"></textarea>
+                  <textarea class="form-control" name="generalDescription" rows="3"></textarea>
                 </div>
                 <div class="modal-footer">
                   <button type="submit" class="btn btn-primary">Save changes</button>
