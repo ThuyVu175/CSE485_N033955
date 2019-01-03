@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -88,7 +86,7 @@
 	</nav>	
 
     <div class="container">
-    <?php
+<?php
     $ID = $_GET["ID"] ;
     $servername = "localhost";
     $username = "root";
@@ -100,44 +98,41 @@
         die('kết nối không thành công ' . mysqli_connect_error());
     }
     mysqli_set_charset($connect, 'UTF8');
-    $sql4 = "SELECT * FROM `lecturer` WHERE `lecturer`.`ID`='$ID'";
+    $sql4 = "SELECT * FROM `class` WHERE `class`.`ID`='$ID'";
     //kiểm tra
     $result = mysqli_query($connect, $sql4);
     $row = mysqli_fetch_array($result);
     // die($sql);
 ?>
+
 <br><br>
-<h2 style="padding-left: 50px;">Sửa Thông Tin Giảng Viên</h2>
+<h2 style="padding-left: 50px;">Sửa Thông Tin Lớp</h2>
 <form style="padding-left: 100px;margin-top:20px;" action="XuLyEdit.php" method="post">
     <input type="hidden" name="ID" value="<?php echo $row['ID']?>">
     <table>
         <tr>
-            <td WIDTH = "200px;">Sửa Tên Giảng Viên:</td>
-            <td><input style="margin-left: 30px;" type="text" name="name" value="<?php echo $row['name'];?>"></td>
+            <td WIDTH = "200px;">Sửa ID Giảng Viên:</td>
+            <td><input style="margin-left: 30px;" type="text" name="lecturerID" value="<?php echo $row['lecturerID'];?>"></td>
         </tr>
         <tr>
-            <td>Sửa Tuổi:</td>
-            <td><input style="margin-left: 30px;margin-top:5px;" type="text" name="age" value="<?php echo $row['age'];?>"></td>
+            <td>Sửa ID Môn Học:</td>
+            <td><input style="margin-left: 30px;margin-top:5px;" type="text" name="subjectID" value="<?php echo $row['subjectID'];?>"></td>
         </tr>
         <tr>
-            <td>Sửa Email:</td>
-            <td><input style="margin-left: 30px;margin-top:5px;" type="text" name="email" value="<?php echo $row['email'];?>"></td>
+        <td><label id="label" class="label">Cập Nhật Ngày Bắt Đầu:</label></td>
+        <td><input style="margin-left: 30px;margin-top:5px;" class="input" type="date" name="startDay"
+            value="<?php echo $row['startDay'];?>"
+            min="2018-01-01" max="2019-12-31"></td>
         </tr>
         <tr>
-            <td>Sửa Số Điện Thoại:</td>
-            <td> <input style="margin-left: 30px;margin-top:5px;" type="text" name="phoneNumber" value="<?php echo $row['phoneNumber'];?>"></td>
-        </tr>
-        <tr>
-            <td> Sửa Cập Nhật Ảnh:</td>
-            <td><input style="margin-left: 30px;margin-top:5px;" type="text" name="name" value="<?php echo $row['name'];?>"></td>
-        </tr>
-        <tr>
-            <td> Sửa Mô Tả:</td>
-            <td><input style="margin-left: 30px;margin-top:5px;" type="text" name="generalDescription" value="<?php echo $row['generalDescription'];?>"></td>
+        <td><label id="label" class="label">Cập Nhật Ngày Kết Thúc:</label></td>
+        <td><input style="margin-left: 30px;margin-top:5px;" class="input" type="date" name="finishDay"
+            value="<?php echo $row['finishDay'];?>"
+            min="2018-01-01" max="2019-12-31"></td>
         </tr>
     </table>
     <br>
-    <input style="margin-top: 10px;" type="submit" class="btn btn-success" value="Cập Nhật Học Viên">
+    <input style="margin-top: 10px;" type="submit" class="btn btn-success" value="Cập Nhật Lớp">
 </form>
 </div>
 </body>

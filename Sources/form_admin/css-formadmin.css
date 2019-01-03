@@ -141,3 +141,17 @@ input[type="password"] {
     display:inline-block;
     vertical-align:middle;
   }
+
+  #label {
+    display: block;
+        font: 1rem 'Fira Sans', sans-serif;
+    }
+
+    .input,
+    .label {
+        margin: .4rem 0;
+    }
+
+    .note {
+        font-size: .8em;
+    }

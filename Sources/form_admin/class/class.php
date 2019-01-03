@@ -16,8 +16,8 @@
     $finishDay = "";
     //Lấy giá trị POST từ form vừa submit
     if ($_SERVER["REQUEST_METHOD"] == "POST") { 
-      if(isset($_POST["lecturerID"])) { $name = $_POST['lecturerID']; }
-      if(isset($_POST["subjectID"])) { $Name= $_POST['subjectID']; }
+      if(isset($_POST["lecturerID"])) { $lecturerID = $_POST['lecturerID']; }
+      if(isset($_POST["subjectID"])) { $subjectID= $_POST['subjectID']; }
       if(isset($_POST["startDay"])) { $startDay = $_POST['startDay']; }
       if(isset($_POST["finishDay"])) { $finishDay = $_POST['finishDay']; }
       //Code xử lý, insert dữ liệu vào table
@@ -130,9 +130,9 @@ if (!$connect) {
     die('kết nối không thành công ' . mysqli_connect_error());
 }
 
-$sql = "SELECT `lecturer`.`name`,`subjects`.`Name`,`class`.`startDay`,`class`.`finishDay`,`class`.`createDate` 
+$sql = "SELECT * 
 FROM `lecturer`,`subjects`,`class`
-WHERE `lecturer`.`ID`=`class`.`lecturerID` AND `subjects`.`ID`=`class`.`subjectID`";
+WHERE `lecturer`.`ID`=`class`.`lecturerID` AND `subjects`.`ID`=`class`.`subjectID` AND `class`.`isActive`=1";
 //kiểm tra
 if ($result = mysqli_query($connect, $sql)) {
     while ($row = mysqli_fetch_array($result)) {
@@ -167,8 +167,8 @@ if ($result = mysqli_query($connect, $sql)) {
               <h5><font color="red"> XÓA</font></h5>
             </button>
           </a>
-          <a href="class/delete.php?ID=<?php echo $row['ID']; ?>" class="delete">
-            <button type="button" title="CHI TIẾT LỚP HỌC" class="buttonsmall" >
+          <a href="class/detailedClass.php?ID=<?php echo $row['ID']; ?>">
+            <button type="button" title="CHI TIẾT LỚP HỌC" class="buttonsmall">
               <h5><font color="blue"><i class="fa fa-sign-in"></i></font></h5>
             </button>
           </a>

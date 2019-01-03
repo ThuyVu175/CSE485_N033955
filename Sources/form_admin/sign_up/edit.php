@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,13 +30,13 @@
 				
 						<ul class="nav col-md-10 offset-2" >
 						    <li><h3 class="h2" style="font-family: vardana;">Ươm Mầm Tài Năng Việt</h3></li>
-							<li class="" style="margin-top:5px;margin-left: 150px;">
+							<li class="" style="margin-top: 30px;margin-left: 150px;">
 								<button class="btn btn-danger" data-toggle="modal">
 								 <i class="fa fa-user"></i>
 									Admin
 								</button>
 							</li>
-							<li class="nav-item" style="margin-left: 20px;margin-top:5px;">
+							<li class="nav-item" style="margin-left: 20px;margin-top: 30px;">
 							    <a href="../../form/Index.php">
 									<button class="btn btn-danger" data-toggle="modal">
 									Đăng Xuất
@@ -89,57 +87,33 @@
 
     <div class="container">
     <?php
-    $ID = $_GET["ID"] ;
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "qlkhoahocttnk";
-    $connect = mysqli_connect('localhost', 'root', '', 'qlkhoahocttnk');
-    //Kiểm tra kết nối
-    if (!$connect) {
-        die('kết nối không thành công ' . mysqli_connect_error());
-    }
-    mysqli_set_charset($connect, 'UTF8');
-    $sql4 = "SELECT * FROM `lecturer` WHERE `lecturer`.`ID`='$ID'";
-    //kiểm tra
-    $result = mysqli_query($connect, $sql4);
-    $row = mysqli_fetch_array($result);
-    // die($sql);
+$ID = $_GET["ID"] ;
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "qlkhoahocttnk";
+$connect = mysqli_connect('localhost', 'root', '', 'qlkhoahocttnk');
+if (!$connect) {
+    die('kết nối không thành công ' . mysqli_connect_error());
+}
+mysqli_set_charset($connect, 'UTF8');
+$sql4 = "SELECT * FROM `sign_up` WHERE `sign_up`.`ID`='$ID'";
+$result = mysqli_query($connect, $sql4);
+$row = mysqli_fetch_array($result);
 ?>
-<br><br>
-<h2 style="padding-left: 50px;">Sửa Thông Tin Giảng Viên</h2>
-<form style="padding-left: 100px;margin-top:20px;" action="XuLyEdit.php" method="post">
-    <input type="hidden" name="ID" value="<?php echo $row['ID']?>">
-    <table>
-        <tr>
-            <td WIDTH = "200px;">Sửa Tên Giảng Viên:</td>
-            <td><input style="margin-left: 30px;" type="text" name="name" value="<?php echo $row['name'];?>"></td>
-        </tr>
-        <tr>
-            <td>Sửa Tuổi:</td>
-            <td><input style="margin-left: 30px;margin-top:5px;" type="text" name="age" value="<?php echo $row['age'];?>"></td>
-        </tr>
-        <tr>
-            <td>Sửa Email:</td>
-            <td><input style="margin-left: 30px;margin-top:5px;" type="text" name="email" value="<?php echo $row['email'];?>"></td>
-        </tr>
-        <tr>
-            <td>Sửa Số Điện Thoại:</td>
-            <td> <input style="margin-left: 30px;margin-top:5px;" type="text" name="phoneNumber" value="<?php echo $row['phoneNumber'];?>"></td>
-        </tr>
-        <tr>
-            <td> Sửa Cập Nhật Ảnh:</td>
-            <td><input style="margin-left: 30px;margin-top:5px;" type="text" name="name" value="<?php echo $row['name'];?>"></td>
-        </tr>
-        <tr>
-            <td> Sửa Mô Tả:</td>
-            <td><input style="margin-left: 30px;margin-top:5px;" type="text" name="generalDescription" value="<?php echo $row['generalDescription'];?>"></td>
-        </tr>
-    </table>
-    <br>
-    <input style="margin-top: 10px;" type="submit" class="btn btn-success" value="Cập Nhật Học Viên">
+<br>
+<br>
+<h2 style="padding-left: 50px;">Sửa Thông Tin Đăng Kí</h2>
+<form style="padding-left: 100px;padding-top: 30px;" action="XuLyEdit.php" method="post">
+<input type="hidden" name="ID" value="<?php echo $row['ID']?>">
+Tình Trạng Đăng Kí: <input style="margin-left: 30px;" type="text" name="status" value="<?php echo $row['status'];?>"><br>
+<input style="margin-top: 10px;" type="submit" class="btn btn-success" value="Cập Nhật Đăng Kí">
 </form>
+
+
 </div>
+
+	
 </body>
 <footer>
   <br><br><br>
@@ -180,3 +154,5 @@
 </footer>
 
 </html>
+
+

@@ -2,7 +2,8 @@
 		<div class="row">
 			<?php 
 			$page=isset($_GET["page"])?$_GET["page"]:"";
-
+			if($page =='')
+				include "lecturer/lecturer.php";
 			if($page =='account')
 			    include "account/account.php";
 			if($page =='student')
@@ -17,6 +18,8 @@
 				include "class/class.php";
 			if($page =='sign_up')
 				include "sign_up/sign_up.php";
+			if($page =='ChiTietLopHoc')
+				include "class/detailedClass.php";
 			?>
 		</div>
 	</div>	

@@ -1,9 +1,3 @@
-
-  <script>
-    function xoadk() {
-      alert('Đăng kí đã được xóa!');
-    }
-  </script>
   <?php
    $servername = "localhost";
    $username = "root";
@@ -31,6 +25,7 @@
     <div class="row">
       <table class="table table-hover" bgcolor="">
         <thead style="background: #CCCC66;">
+          <td hidden>ID</td>
           <td>Tên Tài Khoản</td>
           <td>Tên Môn Học</td>
           <td>Số Điện Thoại Học Viên</td>
@@ -48,26 +43,30 @@
             if (!$connect) {
                 die('kết nối không thành công ' . mysqli_connect_error());
             }
-            $sql = "SELECT `account`.`accountName`,`subjects`.`Name`,`sign_up`.`createDate`,`account`.`phoneNumber`,`sign_up`.`status` FROM `account`,`subjects`,`sign_up`
+            $sql = "SELECT * FROM `account`,`subjects`,`sign_up`
              WHERE `account`.`ID`=`sign_up`.`accountID` AND `subjects`.`ID`=`sign_up`.`subjectID`  AND `sign_up`.`isActive`=1   ";
             //kiểm tra
             if ($result = mysqli_query($connect, $sql)) {
                 while ($row = mysqli_fetch_array($result)) {
           ?>
           <tr>
+            <td hidden><?php echo $row['ID'] ?></td>
             <td><?php echo $row['accountName'] ?></td>
             <td><?php echo $row['Name'] ?></td>
             <td><?php echo $row['phoneNumber'] ?></td>
             <td><?php echo $row['status'] ?></td>
             <td><?php echo $row['createDate'] ?></td>
             <td>
-            <button type="button" title="SỬA THÔNG TIN HỌC VIÊN" class="buttonsmall" data-toggle="modal" data-target="#editStudent">
+            <a href="sign_up/edit.php?ID=<?php echo $row['ID']; ?>" >
+            <button type="button" title="SỬA THÔNG TIN ĐĂNG KÍ" class="buttonsmall">
                 <h5> SỬA</h5>
               </button>
-              
-              <button type="button" title="XÓA HỌC VIÊN" class="buttonsmall" onclick="xoahv();">
+            </a>
+            <a href="sign_up/delete.php?ID=<?php echo $row['ID']; ?>">
+              <button type="button" title="XÓA ĐĂNG KÍ" class="buttonsmall">
                 <h5>XÓA</h5>
               </button>
+              </a>
             </td>
         </tr>
         </tbody>
@@ -84,99 +83,3 @@
   </div>
 </body>
 </html>
-
-<div class="modal fade" id="editStudent" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Sửa thông tin học viên</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <!--nội dung plugin-->
-                <table>
-                  <tr>
-                    <td>Nhập tên Học Viên</td>
-                    <td>
-                      <input type="text" name="Name.." id="ten_gv">
-                    </td>
-                  </tr>
-              
-                  <tr>
-                    <td>Nhập tuổi</td>
-                    <td>
-                      <input type="text" name="Date.." id="namsinh_gv">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Nhập số điện thoại</td>
-                    <td>
-                      <input type="text" name="Date.." id="namsinh_gv">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Nhập email</td>
-                    <td>
-                      <input type="text" name="Date.." id="namsinh_gv">
-                    </td>
-                  </tr>
-                </table>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="modal fade" id="addStudent" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true" >
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content" style="background: #E6E6FA;">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">Thêm Học Viên </h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <!--nội dung plugin-->
-                  <table>
-                    <tr>
-                      <td>Tên Học Viên</td>
-                      <td>
-                        <input type="text" name="Name.." id="ten_hv">
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td>Tuổi</td>
-                      <td>
-                        <input type="text" name="Age.." id="tuoi_hv">
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Số Điện Thoại</td>
-                      <td>
-                        <input type="text" name="PhoneNumber.." id="sodienthoai_hv">
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Email</td>
-                      <td>
-                        <input type="text" name="Email.." id="email_hv">
-                      </td>
-                    </tr>
-                  </table>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-              </div>
-            </div>
-          </div>

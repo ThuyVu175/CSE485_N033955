@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,14 +30,14 @@
 				
 						<ul class="nav col-md-10 offset-2" >
 						    <li><h3 class="h2" style="font-family: vardana;">Ươm Mầm Tài Năng Việt</h3></li>
-							<li class="" style="margin-top:5px;margin-left: 150px;">
+							<li class="" style="margin-top: 30px;margin-left: 150px;">
 								<button class="btn btn-danger" data-toggle="modal">
 								 <i class="fa fa-user"></i>
 									Admin
 								</button>
 							</li>
-							<li class="nav-item" style="margin-left: 20px;margin-top:5px;">
-							    <a href="../../form/Index.php">
+							<li class="nav-item" style="margin-left: 20px;margin-top: 30px;">
+							    <a href="../form/Index.php">
 									<button class="btn btn-danger" data-toggle="modal">
 									Đăng Xuất
 									<i class="fa fa-sign-in"></i>
@@ -71,7 +69,7 @@
 						<a class="nav-link" href="../admin.php?page=lecturer" ><font size="4" color="white">Quản Lí Giảng Viên</font></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="../admin.php?page=sign_up"><font size="4"  color="white">Quản Lí Đăng Kí</font></a>
+						<a class="nav-link" href="../admin.php?page=category"><font size="4"  color="white">Quản Lí Danh Mục</font></a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link " href="../admin.php?page=subject"><font size="4" color="white">Quản Lí Môn Học</font></a>
@@ -88,58 +86,71 @@
 	</nav>	
 
     <div class="container">
+<table class="table table-hover" >
+      <thead style="background: #CCCC66;">
+        <td hidden>ID</td>
+        <td>Tên Học Viên</td>
+        <td> Số Điện Thoại</td>
+        <td>Email</td>
+        <td>Tuổi</td>
+         <td>Chức Năng</td>
+      </thead>
+      <tbody>
     <?php
-    $ID = $_GET["ID"] ;
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "qlkhoahocttnk";
-    $connect = mysqli_connect('localhost', 'root', '', 'qlkhoahocttnk');
-    //Kiểm tra kết nối
-    if (!$connect) {
-        die('kết nối không thành công ' . mysqli_connect_error());
+        $ID=$_GET['ID'] ;
+        // khởi tạo kết nối
+        $connect = mysqli_connect('localhost', 'root', '', 'qlkhoahocttnk');
+        // để hiện thị tiếng việt
+        mysqli_set_charset($connect, 'UTF8');
+        //Kiểm tra kết nối
+        if (!$connect) {
+            die('kết nối không thành công ' . mysqli_connect_error());
+        }
+
+        $sql = "SELECT `student_class`.`classID`,`student`.`name`,`student`.`phoneNumber`,`student`.`email`,`student`.`age` 
+        FROM `student`,`student_class`
+        WHERE `student_class`.`classID`= '$ID' AND `student_class`.`studentID` = `student`.`ID` ";
+        //kiểm tra
+        if ($result = mysqli_query($connect, $sql)) {
+            while ($row = mysqli_fetch_array($result)) {
+    ?>
+      <tbody>
+        <td hidden>
+          <?php echo $row['classID'] ?>
+        </td>
+        <td>
+          <?php echo $row['name'] ?>
+        </td>
+        <td>
+          <?php echo $row['phoneNumber'] ?>
+        </td>
+        <td>
+          <?php echo $row['email'] ?>
+        </td>
+        <td>
+          <?php echo $row['age'] ?>
+        </td>
+        <td>
+          <a href="class/delete.php?ID=<?php echo $row['ID']; ?>" class="delete">
+            <button type="button" title="XÓA LỚP HỌC" class="buttonsmall" >
+              <h5><font color="red"> XÓA</font></h5>
+            </button>
+          </a>
+        </td>
+      </tbody>
+      <?php
     }
-    mysqli_set_charset($connect, 'UTF8');
-    $sql4 = "SELECT * FROM `lecturer` WHERE `lecturer`.`ID`='$ID'";
-    //kiểm tra
-    $result = mysqli_query($connect, $sql4);
-    $row = mysqli_fetch_array($result);
-    // die($sql);
-?>
-<br><br>
-<h2 style="padding-left: 50px;">Sửa Thông Tin Giảng Viên</h2>
-<form style="padding-left: 100px;margin-top:20px;" action="XuLyEdit.php" method="post">
-    <input type="hidden" name="ID" value="<?php echo $row['ID']?>">
-    <table>
-        <tr>
-            <td WIDTH = "200px;">Sửa Tên Giảng Viên:</td>
-            <td><input style="margin-left: 30px;" type="text" name="name" value="<?php echo $row['name'];?>"></td>
-        </tr>
-        <tr>
-            <td>Sửa Tuổi:</td>
-            <td><input style="margin-left: 30px;margin-top:5px;" type="text" name="age" value="<?php echo $row['age'];?>"></td>
-        </tr>
-        <tr>
-            <td>Sửa Email:</td>
-            <td><input style="margin-left: 30px;margin-top:5px;" type="text" name="email" value="<?php echo $row['email'];?>"></td>
-        </tr>
-        <tr>
-            <td>Sửa Số Điện Thoại:</td>
-            <td> <input style="margin-left: 30px;margin-top:5px;" type="text" name="phoneNumber" value="<?php echo $row['phoneNumber'];?>"></td>
-        </tr>
-        <tr>
-            <td> Sửa Cập Nhật Ảnh:</td>
-            <td><input style="margin-left: 30px;margin-top:5px;" type="text" name="name" value="<?php echo $row['name'];?>"></td>
-        </tr>
-        <tr>
-            <td> Sửa Mô Tả:</td>
-            <td><input style="margin-left: 30px;margin-top:5px;" type="text" name="generalDescription" value="<?php echo $row['generalDescription'];?>"></td>
-        </tr>
+} else
+    //Hiện thông báo khi không thành công
+    echo 'Không thành công. Lỗi' . mysqli_error($connect);
+//ngắt kết nối
+mysqli_close($connect);
+ ?>
+      </tbody>
     </table>
-    <br>
-    <input style="margin-top: 10px;" type="submit" class="btn btn-success" value="Cập Nhật Học Viên">
-</form>
 </div>
+
+	
 </body>
 <footer>
   <br><br><br>
@@ -180,3 +191,5 @@
 </footer>
 
 </html>
+
+
