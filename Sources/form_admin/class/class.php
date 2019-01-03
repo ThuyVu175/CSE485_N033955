@@ -158,13 +158,18 @@ if ($result = mysqli_query($connect, $sql)) {
         </td>
         <td>
           <a href="class/edit.php?ID=<?php echo $row['ID']; ?>" >
-            <button type="button" title="SỬA THÔNG TIN DANH MỤC" class="buttonsmall" data-toggle="modal" data-target="#exampleModalCenter1">
-              <h5> SỬA</h5>
+            <button type="button" title="SỬA THÔNG TIN LỚP HỌC" class="buttonsmall" data-toggle="modal" data-target="#exampleModalCenter1">
+              <h5> <font color="">SỬA</font></h5>
             </button>
           </a>
           <a href="class/delete.php?ID=<?php echo $row['ID']; ?>" class="delete">
-            <button type="button" title="XÓA DANH MỤC" class="buttonsmall" >
-              <h5>XÓA</h5>
+            <button type="button" title="XÓA LỚP HỌC" class="buttonsmall" >
+              <h5><font color="red"> XÓA</font></h5>
+            </button>
+          </a>
+          <a href="class/delete.php?ID=<?php echo $row['ID']; ?>" class="delete">
+            <button type="button" title="CHI TIẾT LỚP HỌC" class="buttonsmall" >
+              <h5><font color="blue"><i class="fa fa-sign-in"></i></font></h5>
             </button>
           </a>
         </td>

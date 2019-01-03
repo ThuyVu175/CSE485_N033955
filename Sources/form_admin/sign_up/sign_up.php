@@ -33,6 +33,8 @@
         <thead style="background: #CCCC66;">
           <td>Tên Tài Khoản</td>
           <td>Tên Môn Học</td>
+          <td>Số Điện Thoại Học Viên</td>
+          <td>Trạng Thái</td>
           <td>Ngày Tạo</td>
           <td>Chức Năng</td>
         </thead>
@@ -46,8 +48,8 @@
             if (!$connect) {
                 die('kết nối không thành công ' . mysqli_connect_error());
             }
-            $sql = "SELECT `account`.`accountName`,`subjects`.`Name`,`sign_up`.`createDate` FROM `account`,`subjects`,`sign_up`
-             WHERE `account`.`ID`=`sign_up`.`accountID` AND `subjects`.`ID`=`sign_up`.`subjectID` AND `sign_up`.`createDate` AND `sign_up`.`isActive`=1   ";
+            $sql = "SELECT `account`.`accountName`,`subjects`.`Name`,`sign_up`.`createDate`,`account`.`phoneNumber`,`sign_up`.`status` FROM `account`,`subjects`,`sign_up`
+             WHERE `account`.`ID`=`sign_up`.`accountID` AND `subjects`.`ID`=`sign_up`.`subjectID`  AND `sign_up`.`isActive`=1   ";
             //kiểm tra
             if ($result = mysqli_query($connect, $sql)) {
                 while ($row = mysqli_fetch_array($result)) {
@@ -55,6 +57,8 @@
           <tr>
             <td><?php echo $row['accountName'] ?></td>
             <td><?php echo $row['Name'] ?></td>
+            <td><?php echo $row['phoneNumber'] ?></td>
+            <td><?php echo $row['status'] ?></td>
             <td><?php echo $row['createDate'] ?></td>
             <td>
             <button type="button" title="SỬA THÔNG TIN HỌC VIÊN" class="buttonsmall" data-toggle="modal" data-target="#editStudent">

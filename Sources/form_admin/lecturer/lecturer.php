@@ -14,7 +14,7 @@
     $age = "";
     $email = "";
     $phoneNumber = "";
-    $description = "";
+    $detailedDescription = "";
     $generalDescription = "";
     $sexual = "";
     $image = "";
@@ -24,18 +24,23 @@
       if(isset($_POST["age"])) { $age = $_POST['age']; }
       if(isset($_POST["email"])) { $email = $_POST['email']; }
       if(isset($_POST["phoneNumber"])) { $phoneNumber = $_POST['phoneNumber']; }
-      if(isset($_POST["description"])) { $description = $_POST['description']; }
       if(isset($_POST["generalDescription"])) { $generalDescription = $_POST['generalDescription']; }
+      if(isset($_POST["detailedDescription"])) { $detailedDescription = $_POST['detailedDescription']; }
       if(isset($_POST["sexual"])) { $sexual = $_POST['sexual']; }
       if(isset($_POST["image"])) { $image = $_POST['image']; }
       //Code xử lý, insert dữ liệu vào table
-      $sql = "INSERT INTO lecturer (name,age,email,phoneNumber,description, generalDescription,sexual,image, createDate, isActive)
-      VALUES ('$name','$age','$email','$phoneNumber','$description','$generalDescription','$sexual','$image', NOW(),1)";
+      $sql = "INSERT INTO lecturer (name,age,email,phoneNumber, generalDescription,detailedDescription,sexual,image, createDate, isActive)
+      VALUES ('$name','$age','$email','$phoneNumber','$generalDescription','$detailedDescription','$sexual','$image', NOW(),1)";
       if ( (mysqli_query($connect, $sql)) ) {
         echo "<script>";
         echo "alert('Thêm Giảng Viên Thành Công !');";  
         echo "</script>";
       } 
+      else {
+        echo "<script>";
+        echo "alert('Thêm Giảng Viên Thất Bại !');";  
+        echo "</script>";
+      }
   }
 
 //Đóng database
@@ -46,7 +51,7 @@ mysqli_close($connect);
   <div class="container">
     <div class="row">
       <div class="col-md-3 ">
-        <form title="THÊM GIẢNG VIÊN" action="" method="post">
+        <form title="THÊM GIẢNG VIÊN" action="" method="POST">
           <button type="button" class="button1 " data-toggle="modal" data-target="#exampleModalCenter">
             <font face="cursive"> ADD</font>
           </button>
@@ -102,11 +107,10 @@ mysqli_close($connect);
                       </td>
                     </tr>     
                   </table>
-                  <label for="trinhdohocvan"> Giới Thiệu Chung</label>
-                  <textarea class="form-control" name="description" rows="2"></textarea>            
-                  </table>
-                    <label for="trinhdohocvan"> Mô Tả</label>
-                  <textarea class="form-control" name="generalDescription" rows="3"></textarea>
+                  <label> Giới Thiệu Chung</label>
+                  <textarea class="form-control" name="generalDescription" rows="2"></textarea>            
+                  <label> Mô Tả</label>
+                  <textarea class="form-control" name="detailedDescription" rows="3"></textarea>
                 </div>
                 <div class="modal-footer">
                   <button type="submit" class="btn btn-primary">Save changes</button>
@@ -145,7 +149,7 @@ if ($result = mysqli_query($connect, $sql)) {
   ?>
     <tbody>
        <td hidden>ID: <?php echo $row['ID'] ?></td>
-       <td><img src="<?php echo $row['image'] ?>" class="img"></td>
+       <td><img src="<?php echo $row['image'] ?>" class="img" alt="ảnh của giảng viên"></td>
        <td width="280px">
         <p> Tên Giảng Viên: <?php echo $row['name'] ?> </p>
         <p> Tuổi: <?php echo $row['age'] ?></p>
@@ -153,8 +157,7 @@ if ($result = mysqli_query($connect, $sql)) {
           <p>Email: <?php echo $row['email'] ?></p>
         </td>
        <td width="400px">
-          <p>Giới thiệu:  <?php echo $row['description'] ?></p>
-          <p>Giới thiệu chung: <?php echo $row['generalDescription'] ?></p>
+          <p>Giới thiệu:  <?php echo $row['generalDescription'] ?></p>
        </td>
        <td><?php echo $row['createDate'] ?></td>
        <td width="200px">
