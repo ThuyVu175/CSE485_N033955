@@ -21,7 +21,10 @@ $result2=mysqli_query($con, $sql2);
 					<h3>KHÓA HỌC CỦA BẠN</h3>
 				</div>
 				<div class="col-md-2">
-					<button class="btn btn-warning" onclick="profile(<?php echo $username;?>)">Thông tin cá nhân</button>
+					<a href="profile.php?username=<?php echo $username ?>">
+						<button class="btn btn-warning" >Thông tin cá nhân</button>
+					</a>
+					
 				</div>
 
 			</div>
@@ -32,9 +35,9 @@ $result2=mysqli_query($con, $sql2);
 
 				<div class="col-md-9 pl-5 ">
 					<div class="row">
-						<h4>Tên khóa học: </h4>
+						<h4>Vẽ màu nước </h4>
 					</div>
-					<div class="row">
+					<div class="row mt-3">
 						<div class="col-md-4 col-sm-4">
 							<label>
 								Thời gian:
@@ -117,9 +120,4 @@ $result2=mysqli_query($con, $sql2);
 </div>
 
 <!--MAIN-->
-<script type="text/javascript">
-	function profile(username){
-
-	}
-</script>
 
