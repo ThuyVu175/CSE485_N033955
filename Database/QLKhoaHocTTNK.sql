@@ -18,7 +18,9 @@ CREATE TABLE ACCOUNT(
 	[passWord] varchar(30) NOT NULL,
 	positionID INT REFERENCES POSITION(ID) NOT NULL,
 	createDate datetime NOT NULL,
-	isActive tinyint NOT NULL
+	isActive tinyint NOT NULL,
+	email varchar(50) NOT NULL,
+	phoneNumber varchar(15) NOT NULL
 )  
 go
 
@@ -28,9 +30,12 @@ go
 	name VARCHAR(30) NOT NULL,
 	age int NOT NULL,
 	email varchar(50) NOT NULL,
-	sexual varchar(5) ,
+	phoneNumber varchar(15),
+	paid int,
+	owed int,
+	sexual varchar(5),
 	createDate datetime NOT NULL,
-	isActive tinyint NOT NULL,
+	isActive tinyint NOT NULL
 )
 go
 
@@ -39,8 +44,9 @@ CREATE TABLE LECTURER(
 	name varchar(30) NOT NULL,
 	age int,
 	email varchar(50) NOT NULL,
-	sdt varchar(15) NOT NULL,
-	depict varchar(500) NOT NULL,
+	phoneNumber varchar(15) NOT NULL,
+	generalDescription varchar(500) NOT NULL,
+	detailDescription varchar(500) NOT NULL,
 	sexual varchar(5),
 	photo varchar(200)NOT NULL,
 	createDate datetime NOT NULL,
@@ -59,7 +65,8 @@ CREATE TABLE subjects(
 	name varchar(30) NOT NULL,
 	categoryID INT  REFERENCES CATEGORY(ID) NOT NULL,
 	[description] varchar(500) NOT NULL,
-	[image] varchar(200),
+	[image] varchar(200) NOT NULL,
+	price int NOT NULL,
 	createDate datetime NOT NULL,
 	isActive tinyint NOT NULL,
 )
@@ -85,7 +92,9 @@ go
 
 CREATE TABLE SIGN_UP(
 	ID INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	accountID INT REFERENCES ACCOUNT(ID) NOT NULL,
+	name varchar(50) NOT NULL,
+	phoneNumber int NOT NULL,
+	[status] varchar(50) NOT NULL,
     subjectID INT REFERENCES subjects(ID) NOT NULL,
 	createdDate datetime NOT NULL,
 	isActive tinyint NOT NULL,
