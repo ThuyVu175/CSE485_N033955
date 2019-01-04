@@ -106,7 +106,7 @@
 ?>
 
 <br><br>
-<h2 style="padding-left: 50px;">Sửa Thông Tin Lớp</h2>
+<h2 style = " padding-left: 50px; color: #993300;">Sửa Thông Tin Lớp</h2>
 <form style="padding-left: 100px;margin-top:20px;" action="XuLyEdit.php" method="post">
     <input type="hidden" name="ID" value="<?php echo $row['ID']?>">
     <table>
@@ -120,13 +120,13 @@
         </tr>
         <tr>
         <td><label id="label" class="label">Cập Nhật Ngày Bắt Đầu:</label></td>
-        <td><input style="margin-left: 30px;margin-top:5px;" class="input" type="date" name="startDay"
+        <td><input style="margin-left: 30px;margin-top:5px;" class="input form-control" type="date" name="startDay"
             value="<?php echo $row['startDay'];?>"
             min="2018-01-01" max="2019-12-31"></td>
         </tr>
         <tr>
         <td><label id="label" class="label">Cập Nhật Ngày Kết Thúc:</label></td>
-        <td><input style="margin-left: 30px;margin-top:5px;" class="input" type="date" name="finishDay"
+        <td><input style="margin-left: 30px;margin-top:5px;" class="input form-control" type="date" name="finishDay"
             value="<?php echo $row['finishDay'];?>"
             min="2018-01-01" max="2019-12-31"></td>
         </tr>

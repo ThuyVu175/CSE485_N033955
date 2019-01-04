@@ -44,6 +44,8 @@
 
   <!--noi dung-->
   <div class="container">
+  <br>
+    <h2><font color="green">Quản Lí Lớp</font></h2>
     <div class="row">
       <div class="col-md-3 ">
         <form title="THÊM Lớp" action="" method="post">

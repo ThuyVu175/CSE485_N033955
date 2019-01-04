@@ -84,9 +84,133 @@
 			</div>
 		</div>
 	</nav>	
-
+  
     <div class="container">
-<table class="table table-hover" >
+    <div class="row">
+    <div class="col-md-3 ">
+        <form title="THÊM HỌC VIÊN" action="" method="post">
+        <?php
+          $servername = "localhost";
+          $username = "root";
+          $password = "";
+          $dbname = "qlkhoahocttnk";
+          $connect = mysqli_connect('localhost', 'root', '', 'qlkhoahocttnk');
+          //Kiểm tra kết nối
+          if (!$connect) {
+              die('kết nối không thành công ' . mysqli_connect_error());
+          }
+          mysqli_set_charset($connect, 'UTF8');
+          $ID=$_GET['ID'] ;
+          $studentID = "";
+          //Lấy giá trị POST từ form vừa submit
+          if ($_SERVER["REQUEST_METHOD"] == "POST") { 
+            if(isset($_POST["studentID"])) { $studentID = $_POST['studentID']; }
+            $sqlselect = "SELECT * FROM student_class WHERE ID = '$ID';";
+            $sql = "INSERT INTO student_class (studentID,classID,createDate, isActive)
+            VALUES ('$studentID', 'classID', NOW(),1)";
+            if ( (mysqli_query($connect, $sql)) ) {
+              echo "<script>";
+              echo "alert('Thêm Học Viên Thành Công !');";  
+              echo "</script>";
+            } 
+            else {      
+            echo "<script>";
+            echo "alert('Thêm Học Viên Thất Bại !');";  
+            echo "</script>";
+          } 
+        }
+        //Đóng database
+        mysqli_close($connect);
+          ?>
+          <button type="button" class="button1 " data-toggle="modal" data-target="#addStudent">
+            <font face="cursive"> ADD</font>
+          </button>
+          <div class="modal fade" id="addStudent" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Nhập thông tin học viên</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <!--nội dung plugin-->
+                <table>
+                  <tr>
+                    <td>Nhập ID Học Viên</td>
+                    <td>
+                      <input type="text" name="accountID" >
+                    </td>
+                  </tr>
+                </table>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="modal fade" id="addStudent" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true" >
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content" style="background: #E6E6FA;">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Thêm Học Viên </h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <!--nội dung plugin-->
+                  <table>
+                    <tr>
+                      <td>Tên Học Viên</td>
+                      <td>
+                        <input type="text" name="Name.." id="ten_hv">
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Tuổi</td>
+                      <td>
+                        <input type="text" name="Age.." id="tuoi_hv">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Số Điện Thoại</td>
+                      <td>
+                        <input type="text" name="PhoneNumber.." id="sodienthoai_hv">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Email</td>
+                      <td>
+                        <input type="text" name="Email.." id="email_hv">
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-5 offset-md-4" style="padding-top: 50px;">
+        <button type="submit" class="buttonsearch">
+        <i class="fa fa-search"></i>
+        </button>
+        <input type="text" name="search" placeholder="Tìm kiếm ...">
+      </div>
+    </div>
+        <br><br>
+    <table class="table table-hover" >
       <thead style="background: #CCCC66;">
         <td hidden>ID</td>
         <td>Tên Học Viên</td>
@@ -131,7 +255,7 @@
           <?php echo $row['age'] ?>
         </td>
         <td>
-          <a href="class/delete.php?ID=<?php echo $row['ID']; ?>" class="delete">
+          <a href="class/delete_detailedClass.php?studentID=<?php echo $row['studentID']; ?>&& classID=<?php echo $row['classID']; ?>">
             <button type="button" title="XÓA LỚP HỌC" class="buttonsmall" >
               <h5><font color="red"> XÓA</font></h5>
             </button>

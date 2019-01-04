@@ -12,6 +12,8 @@
 <body style="background: #E6E6FA">
   <!--noi dung-->
   <div class="container">
+  <br>
+    <h2><font color="green">Quản Lí Đăng Kí</font></h2>
     <div class="row">
       <div class="col-md-5 offset-md-4" style="padding-top: 50px;">
         <button type="submit" class="buttonsearch">

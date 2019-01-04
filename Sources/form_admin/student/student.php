@@ -48,6 +48,8 @@ mysqli_close($connect);
 <body style="background: #E6E6FA">
   <!--noi dung-->
   <div class="container">
+  <br>
+    <h2><font color="green">Quản Lí Học Viên</font></h2>
     <div class="row">
       <div class="col-md-3 ">
         <form title="THÊM HỌC VIÊN" action="" method="post">

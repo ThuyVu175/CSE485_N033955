@@ -44,6 +44,8 @@ mysqli_close($connect);
 
   <!--noi dung-->
   <div class="container">
+  <br>
+    <h2><font color="green">Quản Lí Danh Mục</font></h2>
     <div class="row">
       <div class="col-md-3 ">
         <form title="THÊM DANH MỤC" action="" method="post">
@@ -78,62 +80,14 @@ mysqli_close($connect);
         </form>
       </div>
       <div class="col-md-5 offset-md-4" style="padding-top: 50px;">
-            <form action="" method="get">
-                Search: <input type="text" name="search" />
-                <input type="submit" name="btnsearch" value="search" />
-            </form>
-        <?php
-        /* Tìm kiếm
-        // Nếu người dùng submit form thì thực hiện
-        if (isset($_REQUEST['btnsearch'])) 
-        {
-            // Gán hàm addslashes để chống sql injection
-            $search = addslashes($_GET['search']);
- 
-            // Nếu $search rỗng thì báo lỗi, tức là người dùng chưa nhập liệu mà đã nhấn submit.
-            if (empty($search)) {
-                echo "Yeu cau nhap du lieu vao o trong";
-            } 
-            else
-            {
-                // Dùng câu lênh like trong sql và sứ dụng toán tử % của php để tìm kiếm dữ liệu chính xác hơn.
-                $query = "SELECT * FROM `category` WHERE Name LIKE '$search'";
- 
-                // Kết nối sql
-                mysql_connect("localhost", "root", "", "qlkhoahocttnk");
- 
-                // Thực thi câu truy vấn
-                $sqlsearch = mysqli_query($query);
- 
-                // Đếm số đong trả về trong sql.
-                $num = mysqli_num_rows($sqlsearch);
- 
-                // Nếu có kết quả thì hiển thị, ngược lại thì thông báo không tìm thấy kết quả
-                if ($num > 0 && $search != "") 
-                {
-                    // Dùng $num để đếm số dòng trả về.
-                    echo "$num ket qua tra ve voi tu khoa <b>$search</b>";
- 
-                    // Vòng lặp while & mysql_fetch_assoc dùng để lấy toàn bộ dữ liệu có trong table và trả về dữ liệu ở dạng array.
-                    echo '<table border="1" cellspacing="0" cellpadding="10">';
-                    while ($kq = mysqli_fetch_assoc($sqlsearch)) {
-                        echo '<tr>';
-                            echo "<td>{$kq['user_id']}</td>";
-                            echo "<td>{$kq['username']}</td>";
-                            echo "<td>{$kq['password']}</td>";
-                            echo "<td>{$kq['email']}</td>";
-                            echo "<td>{$kq['address']}</td>";
-                        echo '</tr>';
-                    }
-                    echo '</table>';
-                } 
-                else {
-                    echo "Khong tim thay ket qua!";
-                }
-            }
-        }
-        */
-        ?>   
+        <form action="category/search.php" method="GET">
+          <div>
+            <button type="submit" class="buttonsmall" style="height:45px;width:auto;">
+              <i class="fa fa-search"></i> Search
+            </button>
+              <input type="text" name="keyword" placeholder="Nhập Tên Danh Mục..">
+          </div>
+        </form>
       </div>
     </div>
     <br><br>

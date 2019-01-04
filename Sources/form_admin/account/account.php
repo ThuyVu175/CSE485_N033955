@@ -21,9 +21,11 @@ mysqli_close($connect);
 <body style="background: #E6E6FA">
   <!--noi dung-->
   <div class="container">
+    <br>
+    <h2><font color="green">Quản Lí Tài Khoản</font></h2>
     <div class="row">
 
-      <div class="col-md-5 offset-md-4" style="padding-top: 50px;">
+      <div class="col-md-5 offset-md-4" style="padding-top: 30px;">
         <button type="submit" class="buttonsearch">
            <img src="../img/search.png" style="width: 34px;height: auto; ">
         </button>

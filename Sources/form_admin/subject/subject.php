@@ -31,13 +31,14 @@
   //Đóng database
   mysqli_close($connect);
     ?>
-  ?>
 
 <body style="background: #E6E6FA">
   
 
   <!--noi dung-->
   <div class="container">
+  <br>
+    <h2><font color="green">Quản Lí Môn Học</font></h2>
     <div class="row">
       <div class="col-md-3 ">
         <form title="THÊM MÔN HỌC" action="" method="post">
