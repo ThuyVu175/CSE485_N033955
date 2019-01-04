@@ -37,7 +37,7 @@
 								</button>
 							</li>
 							<li class="nav-item" style="margin-left: 20px;margin-top: 30px;">
-							    <a href="../form/Index.php">
+							    <a href="C:\xampp\htdocs\CongNgheWeb\Sources\form\Index.php">
 									<button class="btn btn-danger" data-toggle="modal">
 									Đăng Xuất
 									<i class="fa fa-sign-in"></i>
