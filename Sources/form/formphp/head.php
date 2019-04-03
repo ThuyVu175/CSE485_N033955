@@ -43,6 +43,7 @@ session_start();
 						<ul class="offset-md-8 ">	
 							<?php if (isset($_SESSION["user"]))
 							{
+								echo $_SESSION["user"];
 								?>							
 								<li>
 									<a href="Index.php?page=User&username=<?php echo $_SESSION["user"] ?>" type="hide" id="Name" class="text-light font-weight-bold ">
